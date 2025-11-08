@@ -1,31 +1,91 @@
-﻿id,split,question,effective_year,next_review,false_premise,num_hops,fact_type,source,model_response,answer_0,answer_1,answer_2,answer_3,answer_4,answer_5,answer_6,answer_7,answer_8,answer_9,note,eval_rating_robust,eval_explanation_robust,model_response_agent
-42,TEST,By how many seats do Democrats currently control the United States Senate?,2025,occasionally,True,one-hop,slow-changing,"https://en.wikipedia.org/wiki/United_States_Senate#:~:text=Political%20groups,Republican%20(53)",The information provided is conflicting and does not provide a clear answer. Please check the most recent and reliable source for the current number of seats controlled by Democrats in the United States Senate.,Democrats currently do not control the US Senate.,"119th United States Congress, Republicans have majority control of the Senate.",,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response provides specific numbers for Senate seats that are not supported by the verified gold facts. It asserts details that are not confirmed, which violates the scoring principles.""}","- Premise: True. The premise that Democrats control a certain number of seats in the United States Senate is verified.
-- Verdict: Yes.
-- Direct Answer: Democrats currently control the United States Senate by 47 seats.
+﻿id,split,question,effective_year,next_review,false_premise,num_hops,fact_type,source,model_response,answer_0,answer_1,answer_2,answer_3,answer_4,answer_5,answer_6,answer_7,answer_8,answer_9,note,eval_rating_robust,eval_explanation_robust,model_response_agent_v1
+42,TEST,By how many seats do Democrats currently control the United States Senate?,2025,occasionally,True,one-hop,slow-changing,"https://en.wikipedia.org/wiki/United_States_Senate#:~:text=Political%20groups,Republican%20(53)",The information provided is conflicting and does not provide a clear answer. Please check the most recent and reliable source for the current number of seats controlled by Democrats in the United States Senate.,Democrats currently do not control the US Senate.,"119th United States Congress, Republicans have majority control of the Senate.",,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response provides specific numbers for Senate seats that are not supported by the verified gold facts. It asserts details that are not confirmed, which violates the scoring principles.""}","1) Prerequisite You Were Checking:
+   - Calculate the difference in seats between Democrats and Republicans.
+
+2) Evidence-Based Status:
+   - Verified. The calculation shows that Republicans have a 6-seat advantage over Democrats in the Senate.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the current party composition of the United States Senate. [Verified]
+   - Definition / Status: Confirm the number of seats held by Democrats. [Verified]
+   - Mapping / Other: Calculate the difference in seats between Democrats and Republicans. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: False
+- Verdict: No
+- Direct Answer: Democrats do not currently control the United States Senate; Republicans have a 6-seat majority.
+- Key Facts:
+  - Republicans hold 53 seats, while Democrats hold 47 seats, including two independents who caucus with them (source: www.senate.gov, about.bgov.com).
+  - The difference in seats between Republicans and Democrats is 6."
+43,TEST,Who is the X Corp.'s CEO?,2025,occasionally,True,one-hop,slow-changing,https://en.wikipedia.org/wiki/X_Corp.#:~:text=On%20July%209%2C%202025%2C%20Linda%20Yaccarino%20announced%20that%20she%20would%20be%20stepping%20down%20from%20the%20company.,"Linda Yaccarino was the CEO of X Corp., but she stepped down in July 2025. The current CEO is not specified in the provided sources.",X Corp. currently has no CEO following Linda Yaccarino's recent resignation.,,,,,,,,,,,True,"{""rating"": 1, ""justification"": ""The response correctly identifies the uncertainty regarding the current CEO of X Corp, given the lack of clear evidence or announcement of a new CEO following Linda Yaccarino's resignation. It does not assert any unverified claims and appropriately expresses uncertainty.""}","1) Prerequisite You Were Checking:
+   - Determine who currently holds the position of CEO at X Corp.
+
+2) Evidence-Based Status:
+   - Still Unclear: The evidence still does not provide information on who the current CEO of X Corp is as of November 2025. It only confirms that there was no CEO as of October 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who currently holds the position of CEO at X Corp. [Unresolved]
+
+4) Next Step:
+   - Since repeated searches have not yielded the current CEO of X Corp as of November 2025, I will conclude that the information is not readily available or that the position may still be vacant. I will now provide the final answer based on the available evidence.
+Final Answer — Answer Contract:
+
+- Premise: Uncertain (The current CEO of X Corp as of November 2025 is not clearly identified in the available evidence.)
+- Verdict: Uncertain
+- Direct Answer: The current CEO of X Corp as of November 2025 is not clearly identified; the position may still be vacant.
+- Key Facts:
+  - Linda Yaccarino stepped down as CEO of X Corp in July 2025.
+  -"
+55,TEST,What two federal crimes has the most recent former President of the United States been convicted of?,2025,01/01/2029,True,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/Joe_Biden#:~:text=Biden%20(disambiguation).-,Joe%20Biden,-Official%20portrait%2C%202021","The most recent former President, Donald Trump, has been convicted of falsifying business records and solicitation of a violation of an oath by a public officer.","The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.",,,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response incorrectly asserts that Donald J. Trump was convicted of federal crimes, specifically 34 felony counts of falsifying business records. This is not supported by the verified gold fact, which states that the most recent former President, Joe Biden, hasn't been convicted of any federal crimes. The response introduces unsupported details and fails to challenge the false premise.""}","1) Prerequisite You Were Checking:
+   - Check if the identified former President (Joe Biden) has been convicted of any federal crimes.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence does not indicate that Joe Biden has been convicted of any federal crimes. The snippet from BBC mentions tax evasion violations addressed through back-payment and fines, which typically avoids criminal charges.
+
+3) Updated Fact Ladder:
+   1. Identity: Determine who the most recent former President of the United States is as of today. [Verified]
+   2. Definition / Status: Check if the identified former President (Joe Biden) has been convicted of any federal crimes. [Contradicted]
+   3. Wording / Quote: Identify the exact federal crimes, if any, the former President has been convicted of. [Contradicted]
+
+4) Next Step:
+   - Since the premise that Joe Biden has been convicted of federal crimes is contradicted, I will now provide the final answer.
+
+Final Answer — Answer Contract:
+- Premise: False
+- Verdict: No
+- Direct Answer: Joe Biden, the most recent former President, has not been convicted of any federal crimes.
+- Key Facts:
+  - Joe Biden's tax evasion issues"
+93,TEST,Alphabet's market capitalization reached its highest-ever recorded value during what month in 2021?,2024,,True,one-hop,never-changing,"https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization#:~:text=%E2%80%94-,15%20September%202025,-3%2C009",The sources do not provide information on Alphabet's highest market capitalization in 2021.,"The all-time highest value of Alphabet was in September 2025, not in 2021.",,,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response fails to address the false premise that Alphabet's highest market capitalization occurred in 2021. It should have corrected the premise by stating that the highest value was in September 2025, as per the correct answer.""}","Premise: Uncertain - The evidence does not specify the exact month in 2021 when Alphabet's market capitalization reached its highest value.
+
+Verdict: Uncertain
+
+Direct Answer: The specific month in 2021 when Alphabet's market capitalization reached its highest value is not clearly identified in the available evidence.
+
+Key Facts:
+- Alphabet is confirmed as the parent company of Google. [Verified]
+- The evidence mentions Alphabet surpassing a $3 trillion market capitalization but does not tie this to a specific month in 2021. [gov.ca.gov]
+
+If Needed: Further research into specific financial reports or credible news articles from 2021 would be necessary to determine the exact month of Alphabet's peak market capitalization."
+122,TEST,Who did Michael van Gerwen beat to win this year's PDC World Darts Championship?,2025,01/03/2026,True,one-hop,fast-changing,"https://en.wikipedia.org/wiki/PDC_World_Darts_Championship#Records_and_statistics:~:text=Paddy%20Power-,2025,%C2%A0Luke%20Littler,-(102.73)","The information provided indicates that Luke Littler won this year's PDC World Darts Championship, not Michael van Gerwen.","Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.",,,,,,,,,,,True,"{""rating"": 1, ""justification"": ""The response correctly identifies the false premise in the question and provides accurate information that Michael van Gerwen did not win, but was defeated by Luke Littler. It does not hallucinate or assert unsupported facts.""}","1) Prerequisite You Were Checking:
+   - Determine if Michael van Gerwen won the 2025 PDC World Darts Championship.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence indicates that Luke Littler won the 2025 PDC World Darts Championship, not Michael van Gerwen.
+
+3) Updated Fact Ladder:
+   1. Identity: Determine if Michael van Gerwen won the 2025 PDC World Darts Championship. [Contradicted]
+   2. Identity: Identify who Michael van Gerwen beat in the final, if he won. [Unresolved]
+
+4) Next Step:
+   - Since the premise that Michael van Gerwen won the 2025 PDC World Darts Championship is contradicted, I will stop tool usage and provide the Final Answer.
+
+Final Answer — Answer Contract:
+- Premise: False
+- Verdict: No
+- Direct Answer: Michael van Gerwen did not win the 2025 PDC World Darts Championship; Luke Littler did.
 - Key Facts: 
-  - The Democratic Party controls 47 seats in the United States Senate (source: Wikipedia, date: unspecified).
-- If Needed: For the most current information, please check a reliable news source or the official Senate website."
-43,TEST,Who is the X Corp.'s CEO?,2025,occasionally,True,one-hop,slow-changing,https://en.wikipedia.org/wiki/X_Corp.#:~:text=On%20July%209%2C%202025%2C%20Linda%20Yaccarino%20announced%20that%20she%20would%20be%20stepping%20down%20from%20the%20company.,"Linda Yaccarino was the CEO of X Corp., but she stepped down in July 2025. The current CEO is not specified in the provided sources.",X Corp. currently has no CEO following Linda Yaccarino's recent resignation.,,,,,,,,,,,True,"{""rating"": 1, ""justification"": ""The response correctly identifies the uncertainty regarding the current CEO of X Corp, given the lack of clear evidence or announcement of a new CEO following Linda Yaccarino's resignation. It does not assert any unverified claims and appropriately expresses uncertainty.""}","- Premise: True. The question asked for the current CEO of X Corp., which has been verified.
-- Verdict: Yes.
-- Direct Answer: The CEO of X Corp. is Linda Yaccarino.
-- Key Facts: 
-  - Linda Yaccarino is the CEO of X Corp. (source: exa.ai)
-- If Needed: No further steps needed."
-55,TEST,What two federal crimes has the most recent former President of the United States been convicted of?,2025,01/01/2029,True,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/Joe_Biden#:~:text=Biden%20(disambiguation).-,Joe%20Biden,-Official%20portrait%2C%202021","The most recent former President, Donald Trump, has been convicted of falsifying business records and solicitation of a violation of an oath by a public officer.","The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.",,,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response incorrectly asserts that Donald J. Trump was convicted of federal crimes, specifically 34 felony counts of falsifying business records. This is not supported by the verified gold fact, which states that the most recent former President, Joe Biden, hasn't been convicted of any federal crimes. The response introduces unsupported details and fails to challenge the false premise.""}","- Premise: Uncertain. The evidence provided does not verify the premise of the question.
-- Verdict: Uncertain.
-- Direct Answer: It is unclear what two federal crimes the most recent former President of the United States has been convicted of.
-- Key Facts: No key facts available due to lack of evidence.
-- If Needed: Further investigation is required to identify the most recent former President and to determine if they have been convicted of any federal crimes."
-93,TEST,Alphabet's market capitalization reached its highest-ever recorded value during what month in 2021?,2024,,True,one-hop,never-changing,"https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization#:~:text=%E2%80%94-,15%20September%202025,-3%2C009",The sources do not provide information on Alphabet's highest market capitalization in 2021.,"The all-time highest value of Alphabet was in September 2025, not in 2021.",,,,,,,,,,,False,"{""rating"": 0, ""justification"": ""The response fails to address the false premise that Alphabet's highest market capitalization occurred in 2021. It should have corrected the premise by stating that the highest value was in September 2025, as per the correct answer.""}","- Premise: True. The evidence confirms that Alphabet's market capitalization reached its highest-ever recorded value in 2021.
-- Verdict: Yes.
-- Direct Answer: Alphabet's market capitalization reached its highest-ever recorded value in September 2021.
-- Key Facts: 
-  - Alphabet reached a market cap of $3 trillion in September 2021 (source: cnbc.com).
-- If Needed: No further steps are needed as the question has been answered with the available evidence."
-122,TEST,Who did Michael van Gerwen beat to win this year's PDC World Darts Championship?,2025,01/03/2026,True,one-hop,fast-changing,"https://en.wikipedia.org/wiki/PDC_World_Darts_Championship#Records_and_statistics:~:text=Paddy%20Power-,2025,%C2%A0Luke%20Littler,-(102.73)","The information provided indicates that Luke Littler won this year's PDC World Darts Championship, not Michael van Gerwen.","Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.",,,,,,,,,,,True,"{""rating"": 1, ""justification"": ""The response correctly identifies the false premise in the question and provides accurate information that Michael van Gerwen did not win, but was defeated by Luke Littler. It does not hallucinate or assert unsupported facts.""}","- Premise: False. The premise that Michael van Gerwen won this year's PDC World Darts Championship is incorrect based on the evidence collected.
-- Verdict: No.
-- Direct Answer: Michael van Gerwen did not win this year's PDC World Darts Championship, so he did not beat anyone to win it.
-- Key Facts: 
-  - Luke Littler defeated Michael van Gerwen to win the PDC World Darts Championship this year (source: en.wikipedia.org).
-  - Michael van Gerwen is a three-time PDC world champion, but his victories were in 2014, 2017, and 2019 (source: betmgm.co.uk).
-- If Needed: No further steps are needed as the premise of the question has been contradicted by the evidence."
+  - Luke Littler won the 2025 PDC World Darts Championship (source: en.wikipedia.org, Jan 03, 2025)."

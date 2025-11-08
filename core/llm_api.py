@@ -89,3 +89,66 @@ def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
             raise e
 
     return "[ERROR] rate limit retry exceeded"
+
+
+def call_llm_messages(
+    messages,
+    model,
+    temperature,
+    max_tokens,
+    tools=None,
+    tool_choice: str | None = None,
+):
+    """
+    Structured Chat Completions with optional tools (function-calling).
+    Returns dict: {"message": <ChatCompletionMessage>, "raw": <full response>}
+    """
+    # Lazy init
+    global openai_client
+    if openai_client is None:
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            try:
+                from dotenv import load_dotenv
+
+                load_dotenv()
+                api_key = os.getenv("OPENAI_API_KEY")
+            except Exception:
+                pass
+        if not api_key:
+            raise RuntimeError(
+                "OPENAI_API_KEY is not set. Add it to your environment or .env."
+            )
+        openai_client = OpenAI(api_key=api_key)
+
+    req = dict(
+        model=model,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        messages=messages,
+    )
+    if tools:
+        req["tools"] = tools
+        # default to auto when tools provided, unless caller overrides
+        if tool_choice is not None:
+            req["tool_choice"] = tool_choice
+        else:
+            req["tool_choice"] = "auto"
+
+    MAX_RETRIES = 3
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = openai_client.chat.completions.create(**req)
+            return {"message": resp.choices[0].message, "raw": resp}
+        except RateLimitError:
+            sleep_s = 1 + attempt
+            print(f"⚠️ Rate limit hit, sleeping {sleep_s} sec...")
+            time.sleep(sleep_s)
+        except APIError as e:
+            sleep_s = 1 + attempt
+            print(f"⚠️ API error: {e}. Sleeping {sleep_s} sec...")
+            time.sleep(sleep_s)
+        except Exception as e:
+            raise e
+
+    return {"message": None, "raw": None}

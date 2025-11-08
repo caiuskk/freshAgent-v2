@@ -3,6 +3,7 @@ from typing import Callable, Dict, Any, List
 from core.search_engine import call_search_engine
 from core.search_result_formatters import freshprompt_format
 
+
 @dataclass
 class Tool:
     name: str
@@ -10,22 +11,27 @@ class Tool:
     json_schema: Dict[str, Any]
     func: Callable[[Dict[str, Any]], Dict[str, Any]]
 
+
 def tools_to_openai_format(registry: Dict[str, Tool]) -> List[Dict[str, Any]]:
-    return [{
-        "type": "function",
-        "function": {
-            "name": t.name,
-            "description": t.description,
-            "parameters": t.json_schema
+    return [
+        {
+            "type": "function",
+            "function": {
+                "name": t.name,
+                "description": t.description,
+                "parameters": t.json_schema,
+            },
         }
-    } for t in registry.values()]
+        for t in registry.values()
+    ]
 
 
 _TOP_ORGANIC = 5
 _TOP_RELATED = 3
 _TOP_QA = 3
 _TOP_EVID = 6
-_SUFFIX = "\n\nReasoning: <agent to fill>\nAnswer: <agent to fill>" # TODO: need here??
+_SUFFIX = "\n\nReasoning: <agent to fill>\nAnswer: <agent to fill>"  # TODO: need here??
+
 
 def _formatted_google_search(question: str, provider: str = "serper") -> str:
     sdata = call_search_engine(question, provider=provider)
@@ -40,6 +46,7 @@ def _formatted_google_search(question: str, provider: str = "serper") -> str:
     )
     return prompt
 
+
 def _google_impl(args: Dict[str, Any]) -> Dict[str, Any]:
     q = args.get("question", "")
     provider = args.get("provider", "serper")
@@ -49,10 +56,18 @@ def _google_impl(args: Dict[str, Any]) -> Dict[str, Any]:
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
+
 google_tool = Tool(
     name="google",
     description="Search the web and return a FreshPrompt-style evidence block.",
-    json_schema={"type": "object", "properties": {"question": {"type": "string"}},"required": ["question"]},
+    json_schema={
+        "type": "object",
+        "properties": {
+            "question": {"type": "string"},
+            "provider": {"type": "string", "enum": ["serper", "serpapi"]},
+        },
+        "required": ["question"],
+    },
     func=_google_impl,
 )
 
@@ -65,10 +80,15 @@ def _calc_impl(args: Dict[str, Any]) -> Dict[str, Any]:
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
+
 calculator_tool = Tool(
     name="calculator",
     description="Safely evaluate a simple arithmetic expression like '2+2*3'.",
-    json_schema={"type":"object","properties":{"expression":{"type":"string"}},"required":["expression"]},
+    json_schema={
+        "type": "object",
+        "properties": {"expression": {"type": "string"}},
+        "required": ["expression"],
+    },
     func=_calc_impl,
 )
 

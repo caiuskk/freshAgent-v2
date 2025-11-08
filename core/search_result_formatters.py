@@ -321,7 +321,7 @@ def freshprompt_format(
 
     df["date"] = df["date"].apply(format_date)
     df["datetime"] = pd.to_datetime(df["date"], errors="coerce")
-    j = (
+    df = (
         df.sort_values(by="datetime", na_position="first")
         .replace({pd.NaT: None})
         .dropna(how="all")
@@ -331,7 +331,12 @@ def freshprompt_format(
     if not df.empty:
         for _, row in df.tail(num_retrieved_evidences).iterrows():
             evidences.append(
-                f"""\n\nsource: {row.get("source")}\ndate: {row.get("date")}\ntitle: {row.get("title")}\nsnippet: {row.get("snippet")}\nhighlight: {row.get("highlight")}"""
+                "\n\n"
+                f"source: {row.get('source')}\n"
+                f"date: {row.get('date')}\n"
+                f"title: {row.get('title')}\n"
+                f"snippet: {row.get('snippet')}\n"
+                f"highlight: {row.get('highlight')}"
             )
 
     return (

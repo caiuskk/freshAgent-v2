@@ -3,19 +3,64 @@ import json
 import datetime
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
-from core.llm_api import call_llm_api
-from .prompts import REACT_PROMPT, REFLECT_AFTER_TOOL, FINAL_SYNTH_PROMPT
-from .tools import TOOL_REGISTRY
+from .prompts import render_react_prompt, REFLECT_AFTER_TOOL, FINAL_SYNTH_PROMPT
+from core.llm_api import call_llm_messages
+from .tools import TOOL_REGISTRY, tools_to_openai_format
+from freshagent.debug import pretty_debug
 
 
 # --------------------------- #
 #       Helper functions      #
 # --------------------------- #
+def _assistant_message_to_dict(m) -> dict:
+    """Convert OpenAI message object to a plain dict we can append to messages."""
+    out = {"role": "assistant", "content": getattr(m, "content", "") or ""}
+    tcs = getattr(m, "tool_calls", None)
+    if tcs:
+        conv = []
+        for tc in tcs:
+            fn = getattr(tc, "function", None)
+            conv.append(
+                {
+                    "id": getattr(tc, "id", ""),
+                    "type": getattr(tc, "type", "function"),
+                    "function": {
+                        "name": getattr(fn, "name", "") if fn else "",
+                        "arguments": getattr(fn, "arguments", "") if fn else "",
+                    },
+                }
+            )
+        out["tool_calls"] = conv
+    return out
 
 
-def _final_context_from_prompt(user_query: str, messages: List[Dict[str, Any]]) -> str:
+def _extract_latest_reflection(messages: List[Dict[str, Any]]) -> str:
+    """Return the last assistant content (used as 'reflection' snapshot seed)."""
+    for m in reversed(messages):
+        if m.get("role") == "assistant":
+            return (m.get("content") or "").strip()
+    return ""
+
+
+def _build_context_snapshot(user_query: str, reflection_text: str) -> str:
+    """Build a short system snapshot to keep model focused on the target."""
+    rt = reflection_text.strip()
+    if not rt:
+        return (
+            f"SNAPSHOT: Focus on answering the user's question.\nQuestion: {user_query}"
+        )
+    return (
+        "SNAPSHOT: You must stay focused on the user's question.\n"
+        f"Question: {user_query}\n"
+        "Recent reflection summary (for focus, not for quoting):\n"
+        f"{rt}\n"
+        "Use exactly ONE tool in the next step if needed; do not drift."
+    )
+
+
+def _final_context_from_prompt(user_query: str, messages: list[dict]) -> str:
     """Format FINAL_SYNTH_PROMPT with the user question and aggregated evidence."""
-    evidences: List[str] = [
+    evidences: list[str] = [
         m["content"]
         for m in messages
         if m.get("role") == "system" and "EVIDENCE" in (m.get("content") or "")
@@ -44,27 +89,14 @@ def _today_context(tz_name: str = "America/Chicago") -> str:
 def build_react_messages(
     user_query: str, context: Optional[str] = None
 ) -> List[Dict[str, str]]:
-    """Build initial ReAct conversation messages."""
-    sys = f"Today is {_today_context()}.\n\n" + REACT_PROMPT
+    """Build initial ReAct conversation messages with proper date injection."""
+    sys = render_react_prompt(_today_context())
     if context:
         sys = context.strip() + "\n\n" + sys
     return [
         {"role": "system", "content": sys},
         {"role": "user", "content": user_query},
     ]
-
-
-def _concat_chat(messages: List[Dict[str, Any]]) -> str:
-    """
-    Flatten a list of chat messages into a single plain-text prompt.
-    Each message is prefixed by its role name for clarity.
-    """
-    out_lines = []
-    for m in messages:
-        role = m.get("role", "unknown").upper()
-        content = m.get("content", "").strip()
-        out_lines.append(f"[{role}]\n{content}\n")
-    return "\n".join(out_lines)
 
 
 def _inject_evidence(
@@ -122,11 +154,28 @@ class AgentConfig:
     dbg: bool = False
 
 
+# TODO： evaluate token limitation
 def _hp(model: str):
-    """Return default search parameters depending on model family."""
+    """Return default search/token parameters depending on model family."""
     if str(model).startswith("gpt-4"):
-        return dict(n_org=15, n_rel=3, n_qa=3, n_evd=15, max_tokens=256, chat=True)
-    return dict(n_org=15, n_rel=2, n_qa=2, n_evd=5, max_tokens=256, chat=True)
+        return dict(
+            n_org=15,
+            n_rel=3,
+            n_qa=3,
+            n_evd=15,
+            max_tokens=256,  # 反思/中间轮
+            max_tokens_final=512,  # 最后一轮 Answer Contract
+            chat=True,
+        )
+    return dict(
+        n_org=15,
+        n_rel=2,
+        n_qa=2,
+        n_evd=5,
+        max_tokens=256,
+        max_tokens_final=512,
+        chat=True,
+    )
 
 
 # --------------------------- #
@@ -140,125 +189,116 @@ class Agent:
 
     def run(self, query: str, dbg: bool = False) -> str:
         """
-        Multi-round ReAct loop with exactly one tool call per round.
-        Assumes helper functions already exist in this module:
-          - build_react_messages(...)
-          - _inject_evidence(...)
-          - _build_final_context_block(...)
-        Also assumes TOOL_REGISTRY and prompts are imported.
+        Multi-round ReAct with OpenAI function-calling tools:
+          - One tool call at most per round
+          - Last round: force final synthesis (no tools)
         """
-
-        # Small model-specific limits; adjust as needed
-        def _hp(model: str):
-            if str(model).startswith("gpt-4"):
-                return dict(max_tokens=384, chat=True)
-            return dict(max_tokens=320, chat=True)
-
+        # Allow enabling debug from either the call site or config
+        dbg = dbg or getattr(self.cfg, "dbg", False)
         hp = _hp(self.cfg.model)
-
-        # 0) bootstrap conversation
         messages: List[Dict[str, Any]] = build_react_messages(query)
+        tools_spec = tools_to_openai_format(TOOL_REGISTRY) if TOOL_REGISTRY else None
 
-        # Tool-call directive embedded per round. We constrain the model to emit either:
-        #   - a single line: TOOL_CALL: {"name": "<tool>", "arguments": {...}}
-        #   - or a single line: FINALIZE
-        tool_names = ", ".join(sorted(TOOL_REGISTRY.keys()))
-        TOOL_CALL_INSTR = (
-            "Plan your next step. You may use at most ONE tool in this round.\n"
-            f"Available tools: {tool_names}\n"
-            "If you need a tool, output EXACTLY ONE line:\n"
-            'TOOL_CALL: {"name": "<tool-name>", "arguments": {...}}\n'
-            "If you do not need any tool, output exactly: FINALIZE\n"
-            "Do not output anything else on that line."
-        )
-
-        # 1) iterative loop
-        for step in range(1, self.cfg.max_steps + 1):
-            messages.append({"role": "system", "content": TOOL_CALL_INSTR})
-
-            # Ask the model for the next action (tool or finalize)
-            planner = call_llm_api(
-                prompt=_concat_chat(messages),
-                model=self.cfg.model,
-                temperature=self.cfg.temperature,
-                max_tokens=hp["max_tokens"],
-                chat_completions=True,
-            )
-            if dbg:
-                print(f"\n[Step {step} Planner]\n{planner}")
-
-            # Decide whether to finalize or run a tool
-            lines = [ln.strip() for ln in (planner or "").splitlines() if ln.strip()]
-            tool_line = next((ln for ln in lines if ln.startswith("TOOL_CALL:")), "")
-            wants_finalize = any(ln == "FINALIZE" for ln in lines)
-
-            if wants_finalize and not tool_line:
-                break  # proceed to final synthesis
-
-            if not tool_line:
-                # No well-formed tool call produced; stop looping and finalize
-                break
-
-            # Parse tool call (single line JSON payload after "TOOL_CALL:")
-            payload = tool_line.split("TOOL_CALL:", 1)[1].strip()
-            call = json.loads(payload)  # let it error if malformed during development
-            name = str(call.get("name", "")).strip()
-            args = call.get("arguments", {}) or {}
-
-            if name not in TOOL_REGISTRY:
-                # Unknown tool; stop and finalize
-                break
-
-            # Execute exactly one tool
-            tool = TOOL_REGISTRY[name]
-            # Always pass provider so search tools can route correctly
-            if "provider" not in args:
-                args["provider"] = self.cfg.provider
-
-            result = tool.func(args)
-
-            # Inject evidence for the next reasoning step
-            _inject_evidence(messages, result, source_name=name)
-
-            # Force a reflection step before any further tool usage
-            messages.append({"role": "system", "content": REFLECT_AFTER_TOOL})
-            reflection = call_llm_api(
-                prompt=_concat_chat(messages),
-                model=self.cfg.model,
-                temperature=self.cfg.temperature,
-                max_tokens=hp["max_tokens"],
-                chat_completions=True,
-            )
-            messages.append({"role": "assistant", "content": reflection})
-            if dbg:
-                print(f"\n[Step {step} Reflection]\n{reflection}")
-
-            # loop continues to next round; still at most one tool in each round
-
-        # 2) final synthesis (Answer Contract)
-        final_ctx = self._build_final_context_block(query, messages)
-        messages.append({"role": "system", "content": final_ctx})
-
-        final = call_llm_api(
-            prompt=_concat_chat(messages),
-            model=self.cfg.model,
-            temperature=self.cfg.temperature,
-            max_tokens=hp["max_tokens"],
-            chat_completions=True,
-        )
         if dbg:
-            print("\n[Final]\n", final)
+            pretty_debug(messages, title="INIT")
 
-        return final
+        for step in range(1, self.cfg.max_steps + 1):
+            steps_left = self.cfg.max_steps - step + 1
 
-    # --------------------------- #
-    #       Internal helpers      #
-    # --------------------------- #
-    def _as_chat(self, messages: List[Dict[str, Any]]) -> str:
-        """Serialize message list into a single text prompt (for text-only LLM API)."""
-        lines = []
-        for m in messages:
-            role = m.get("role", "user")
-            content = m.get("content", "")
-            lines.append(f"[{role.upper()}]\n{content}\n")
-        return "\n".join(lines)
+            # Snapshot keeps the model focused (only if not the last step)
+            if step > 1 and steps_left > 1:
+                latest_reflection = _extract_latest_reflection(messages)
+                if latest_reflection:
+                    snapshot_text = _build_context_snapshot(query, latest_reflection)
+                    messages.append({"role": "system", "content": snapshot_text})
+                    if dbg:
+                        pretty_debug(messages, title="SNAPSHOT ADDED")
+
+            # Final round: inject final synthesis context and disable tools
+            use_tools = tools_spec if steps_left > 1 else None
+            if steps_left == 1:
+                final_ctx = _final_context_from_prompt(query, messages)
+                messages.append({"role": "system", "content": final_ctx})
+                if dbg:
+                    pretty_debug(messages, title="FINAL CONTEXT")
+
+            # 1) Call LLM
+            this_max = hp["max_tokens_final"] if steps_left == 1 else hp["max_tokens"]
+            out = call_llm_messages(
+                messages=messages,
+                model=self.cfg.model,
+                temperature=self.cfg.temperature,
+                max_tokens=this_max,
+                tools=use_tools,
+            )
+            m = out.get("message")
+            if m is None:
+                return "[ERROR] LLM did not return a message."
+
+            # 2) Append assistant message
+            assistant_dict = _assistant_message_to_dict(m)
+            messages.append(assistant_dict)
+
+            if dbg:
+                pretty_debug(messages, title="AFTER ASSISTANT")
+
+            content = (assistant_dict.get("content") or "").strip()
+            tool_calls = assistant_dict.get("tool_calls") or []
+
+            # 3) Early finish if final answer is present
+            if ("Final Answer:" in content) or (
+                "Premise:" in content and "Verdict:" in content
+            ):
+                return content
+
+            # 4) Tool call branch (only if not last step)
+            if tool_calls and steps_left > 1:
+                first_tc = tool_calls[0]
+                fn = first_tc.get("function", {}) or {}
+                fn_name = (fn.get("name") or "").strip()
+                args_str = fn.get("arguments") or "{}"
+                try:
+                    args = json.loads(args_str)
+                except Exception:
+                    args = {}
+
+                # Provide provider for google if missing
+                if fn_name == "google" and "provider" not in args:
+                    args["provider"] = self.cfg.provider
+
+                if fn_name not in TOOL_REGISTRY:
+                    available = ", ".join(sorted(TOOL_REGISTRY.keys()))
+                    messages.append(
+                        {
+                            "role": "system",
+                            "content": f"Requested tool '{fn_name}' is not available. Available: {available}.",
+                        }
+                    )
+                    continue
+
+                tool = TOOL_REGISTRY[fn_name]
+                result = tool.func(args) or {}
+
+                # Append tool result as a 'tool' message (with tool_call_id)
+                messages.append(
+                    {
+                        "role": "tool",
+                        "tool_call_id": first_tc.get("id") or "",
+                        "content": json.dumps(result, ensure_ascii=False),
+                    }
+                )
+
+                # Inject readable evidence and require reflection
+                _inject_evidence(messages, result, source_name=fn_name)
+                messages.append({"role": "system", "content": REFLECT_AFTER_TOOL})
+                if dbg:
+                    pretty_debug(messages, title=f"TOOL '{fn_name}' RESULT + EVIDENCE")
+                continue
+
+            # 5) No tools, no final — continue next round
+            continue
+
+        # 6) Fallback if max steps exhausted
+        if messages and messages[-1].get("role") == "assistant":
+            return messages[-1].get("content", "[Stopped: max steps reached]")
+        return "[Stopped: max steps reached]"
