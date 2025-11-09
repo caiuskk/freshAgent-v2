@@ -74,6 +74,42 @@ def _final_context_from_prompt(user_query: str, messages: list[dict]) -> str:
     )
 
 
+def extract_direct_answer(final_text: str) -> str:
+    """Best-effort extractor for the 'Direct Answer' field from an Answer Contract.
+
+    Fallbacks gracefully to heuristics when the contract is missing:
+      - If 'Direct Answer:' line is present, return its content (single line)
+      - Else if 'Final Answer:' header present, return the first non-empty line after it
+      - Else return the first non-empty line of the text
+    """
+    import re
+
+    t = (final_text or "").strip()
+    if not t:
+        return ""
+
+    # 1) Direct Answer line
+    m = re.search(r"(?im)^\s*Direct\s*Answer\s*:\s*(.+)$", t)
+    if m:
+        return m.group(1).strip()
+
+    # 2) After a 'Final Answer' header, take next non-empty line
+    fa = re.search(r"(?im)^\s*Final\s*Answer\s*:?(.*)$", t)
+    if fa:
+        tail = t[fa.end():].strip()
+        for line in tail.splitlines():
+            ls = line.strip()
+            if ls:
+                return ls
+
+    # 3) Fallback: first non-empty line
+    for line in t.splitlines():
+        ls = line.strip()
+        if ls:
+            return ls
+    return t
+
+
 def _today_context(tz_name: str = "America/Chicago") -> str:
     """Return current datetime string with timezone name."""
     try:
@@ -302,3 +338,14 @@ class Agent:
         if messages and messages[-1].get("role") == "assistant":
             return messages[-1].get("content", "[Stopped: max steps reached]")
         return "[Stopped: max steps reached]"
+
+    def run_parts(self, query: str, dbg: bool = False) -> Dict[str, str]:
+        """Run the agent and return both full text and extracted direct answer.
+
+        Returns a dict with keys:
+          - 'full': the complete assistant output (Answer Contract or final text)
+          - 'direct': best-effort extracted direct answer string
+        """
+        full = self.run(query, dbg=dbg)
+        direct = extract_direct_answer(full)
+        return {"full": full, "direct": direct}

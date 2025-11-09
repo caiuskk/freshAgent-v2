@@ -1,0 +1,353 @@
+﻿id,question_agent,model_response_agent_v1,question_baseline,model_response,gt,relaxed_label_llm4o_agent,relaxed_label_llm4o_baseline,gt_list,robust_label_agent,robust_label_baseline
+42,By how many seats do Democrats currently control the United States Senate?,"1) Prerequisite You Were Checking:
+   - Verify the current party composition of the United States Senate.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Republicans have the majority in the Senate with 53 seats, while Democrats have 47 seats, including two independents who caucus with Democrats.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current party composition of the United States Senate. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: No
+- Direct Answer: Democrats do not currently control the United States Senate; Republicans hold the majority with 53 seats.
+- Key Facts:
+  - Republicans have 53 seats in the Senate, while Democrats have 47 seats, including two independents who caucus with them (source: about.bgov.com).",By how many seats do Democrats currently control the United States Senate?,The information provided does not specify the current number of seats controlled by Democrats in the United States Senate.,"['Democrats currently do not control the US Senate.', '119th United States Congress, Republicans have majority control of the Senate.']",incorrect,incorrect,"['Democrats currently do not control the US Senate.', '119th United States Congress, Republicans have majority control of the Senate.']",incorrect,unknown
+43,Who is the X Corp.'s CEO?,"Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: No
+- Direct Answer: As of November 2025, X Corp does not have a CEO following Linda Yaccarino's resignation; Elon Musk serves as Chairman and CTO.
+- Key Facts:
+  - Linda Yaccarino stepped down as CEO of X Corp in July 2025.
+  - There is no CEO of X Corp as of October 2025; Elon Musk is the Chairman and CTO.",Who is the X Corp.'s CEO?,"The CEO of X Corp. was Linda Yaccarino, but she stepped down in 2025. The current CEO is not specified in the provided sources.","[""X Corp. currently has no CEO following Linda Yaccarino's recent resignation.""]",correct,correct,"[""X Corp. currently has no CEO following Linda Yaccarino's recent resignation.""]",incorrect,unknown
+55,What two federal crimes has the most recent former President of the United States been convicted of?,"1) Prerequisite You Were Checking:
+   - Verify if Joe Biden has been convicted of any federal crimes.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence does not indicate any federal crime convictions for Joe Biden. It mentions tax evasion violations addressed through back-payment and fines, which typically avoid criminal charges.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who the most recent former President of the United States is as of today. [Verified]
+   - Definition / Status: Verify if Joe Biden has been convicted of any federal crimes. [Contradicted]
+   - Wording / Quote: Identify the exact federal crimes, if any, Joe Biden has been convicted of. [Contradicted]
+
+4) Next Step:
+   - Since the premise that Joe Biden has been convicted of federal crimes is contradicted, I will now provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: False
+- Verdict: No
+- Direct Answer: Joe Biden has not been convicted of any federal crimes.
+- Key Facts:
+  - Joe Biden is the most recent former President of the United States as of November 2025.
+  - There is no evidence of Joe Biden being convicted of",What two federal crimes has the most recent former President of the United States been convicted of?,The sources provided do not specify the two federal crimes the most recent former President of the United States has been convicted of.,"[""The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.""]",correct,incorrect,"[""The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.""]",incorrect,unknown
+93,Alphabet's market capitalization reached its highest-ever recorded value during what month in 2021?,[ERROR] LLM did not return a message.,Alphabet's market capitalization reached its highest-ever recorded value during what month in 2021?,The sources do not provide information on Alphabet's highest market capitalization in 2021.,"['The all-time highest value of Alphabet was in September 2025, not in 2021.']",incorrect,incorrect,"['The all-time highest value of Alphabet was in September 2025, not in 2021.']",unknown,unknown
+122,Who did Michael van Gerwen beat to win this year's PDC World Darts Championship?,"1) Prerequisite You Were Checking:
+   - Determine if Michael van Gerwen won the PDC World Darts Championship in 2025.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence indicates that Luke Littler won the 2025 PDC World Darts Championship, not Michael van Gerwen.
+
+3) Updated Fact Ladder:
+   - Identity: Determine if Michael van Gerwen won the PDC World Darts Championship in 2025. [Contradicted]
+   - Identity: If Michael van Gerwen won, identify who he beat in the final. [Unresolved]
+
+4) Next Step:
+   - Since the premise that Michael van Gerwen won the 2025 PDC World Darts Championship is contradicted, I will proceed to provide the Final Answer without further tool usage.
+
+Final Answer — Answer Contract:
+- Premise: False
+- Verdict: No
+- Direct Answer: Michael van Gerwen did not win the 2025 PDC World Darts Championship; Luke Littler did.
+- Key Facts: 
+  - Luke Littler won the 2025 PDC World Darts Championship (source: Facebook, Jan 03, 2025).",Who did Michael van Gerwen beat to win this year's PDC World Darts Championship?,"The information provided indicates that Michael van Gerwen did not win this year's PDC World Darts Championship. Instead, Luke Littler defeated him.","['Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.']",incorrect,correct,"['Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.']",incorrect,unknown
+123,What does Elon Musk use to refer to his position as X Corp.'s chairman and CTO in his current Twitter/X bio?,"1) Prerequisite You Were Checking:
+   - Determine the exact wording Elon Musk uses in his current Twitter/X bio to refer to his position at X Corp.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence from aol.com indicates that Elon Musk's current X bio reads ""White House Tech Support,"" which does not mention his position as chairman and CTO of X Corp.
+
+3) Updated Fact Ladder:
+   - Identity: Verify that Elon Musk is currently associated with X Corp. as chairman and CTO. [Verified]
+   - Wording/Quote: Determine the exact wording Elon Musk uses in his current Twitter/X bio to refer to his position at X Corp. [Contradicted]
+
+4) Next Step:
+   - Since the evidence contradicts the premise that Elon Musk refers to his position as chairman and CTO of X Corp in his current Twitter/X bio, I will proceed to provide the Final Answer using the Answer Contract.
+Premise: False
+Verdict: No
+Direct Answer: Elon Musk does not refer to his position as X Corp.'s chairman and CTO in his current Twitter/X bio; instead, it reads ""White House Tech Support.""
+Key Facts:
+- As of July 2025, Elon Musk is",What does Elon Musk use to refer to his position as X Corp.'s chairman and CTO in his current Twitter/X bio?,The provided sources do not specify how Elon Musk refers to his position as X Corp.'s chairman and CTO in his current Twitter/X bio.,"[""Elon Musk's current Twitter/X bio does not mention anything about his position as X Corp.'s chairman and CTO."", 'nothing']",correct,correct,"[""Elon Musk's current Twitter/X bio does not mention anything about his position as X Corp.'s chairman and CTO."", 'nothing']",incorrect,unknown
+153,What was the Weeknd's last studio album titled?,"1) Prerequisite You Were Checking:
+   - Confirm the exact title of The Weeknd's most recent studio album.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that the exact title of The Weeknd's most recent studio album is ""Hurry Up Tomorrow,"" released on January 31, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who ""The Weeknd"" is to ensure there are no recent changes or confusions with the name. [Verified]
+   - Timeframe: Determine the release date of The Weeknd's most recent studio album. [Verified]
+   - Wording/Quote: Confirm the exact title of The Weeknd's most recent studio album. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The Weeknd's last studio album is titled ""Hurry Up Tomorrow.""
+- Key Facts:
+  - ""Hurry Up Tomorrow"" is The Weeknd's sixth studio album. (en.wikipedia.org)
+  - It was released on January 31, 2025. (en.wikipedia.org",What was the Weeknd's last studio album titled?,"The Weeknd's last studio album is titled ""Hurry Up Tomorrow.""",['Hurry Up Tomorrow'],incorrect,correct,['Hurry Up Tomorrow'],incorrect,correct
+154,"How many children does Elon Musk have, including his deceased child?","1) Prerequisite You Were Checking:
+   - Verify the current number of children Elon Musk has, including any deceased child.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from multiple sources indicates that Elon Musk has 14 children, including his deceased child, Nevada Alexander, who died at 10 weeks old.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current number of children Elon Musk has, including any deceased child. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Elon Musk has 14 children, including his deceased child.
+- Key Facts:
+  - Elon Musk has publicly acknowledged 14 children. (Source: people.com, Jun 06, 2025)
+  - His first child, Nevada Alexander, died at 10 weeks old. (Source: people.com, Jun 06, 2025)","How many children does Elon Musk have, including his deceased child?","Elon Musk has 14 children, including his deceased child.","['14', 'fourteen', 'at least 14', 'at least fourteen']",correct,correct,"['14', 'fourteen', 'at least 14', 'at least fourteen']",correct,correct
+155,What is the name of NASA's latest telescope that can map the entire celestial sky in infrared light?,"1) Prerequisite You Were Checking:
+   - Determine the name of NASA's latest telescope designed to map the entire celestial sky in infrared light.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that NASA's latest telescope for mapping the entire celestial sky in infrared light is the SPHEREx mission, which began capturing the entire sky in May 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the name of NASA's latest telescope designed to map the entire celestial sky in infrared light. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: NASA's latest telescope that can map the entire celestial sky in infrared light is the SPHEREx mission.
+- Key Facts:
+  - The SPHEREx mission began capturing the entire sky in infrared light in May 2025. (Source: jpl.nasa.gov, May 01, 2025)
+  - SPHEREx is designed to observe the entire sky in 102 infrared colors. (Source: www.jpl.nasa.gov, May 01,",What is the name of NASA's latest telescope that can map the entire celestial sky in infrared light?,The name of NASA's latest telescope that can map the entire celestial sky in infrared light is SPHEREx.,['SPHEREx'],correct,correct,['SPHEREx'],correct,correct
+156,How many seats are there in the German Bundestag?,"1) Prerequisite You Were Checking:
+   - Verify the current composition of the German Bundestag.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that the 2025 German federal election was held to elect 630 members of the Bundestag, down from 736 in 2021 due to reforms in seat distribution.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current composition of the German Bundestag. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The German Bundestag currently has 630 seats.
+- Key Facts:
+  - The 2025 German federal election was held to elect 630 members of the Bundestag. (Source: en.wikipedia.org, 2025)",How many seats are there in the German Bundestag?,There are 735 seats in the German Bundestag.,['630'],correct,incorrect,['630'],correct,unknown
+157,How many core faculty are there in the UMass NLP lab?,"1) Prerequisite You Were Checking:
+   - Verify the current list of core faculty members in the UMass NLP lab.
+
+2) Evidence-Based Status:
+   - Verified. The evidence lists the current core faculty members as Katrin Erk, Mohit Iyyer, Andrew McCallum, and Brendan O'Connor.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current list of core faculty members in the UMass NLP lab. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract. 
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: There are currently four core faculty members in the UMass NLP lab.
+- Key Facts: 
+  - The core faculty members are Katrin Erk, Mohit Iyyer, Andrew McCallum, and Brendan O'Connor.",How many core faculty are there in the UMass NLP lab?,The provided sources do not specify the number of core faculty in the UMass NLP lab.,"['2', 'two']",incorrect,incorrect,"['2', 'two']",incorrect,unknown
+158,How many LA metro rail stations are there?,"1) Prerequisite You Were Checking:
+   - Confirm the most recent update or report on the number of LA metro rail stations.
+
+2) Evidence-Based Status:
+   - Verified. As of September 2025, the LA Metro Rail system includes 107 stations.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current entity responsible for the LA metro rail system to ensure accurate data retrieval. [Verified]
+   - Timeframe: Confirm the most recent update or report on the number of LA metro rail stations. [Verified]
+   - Definition / Status: Determine the current number of LA metro rail stations as of the latest available data. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the final answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: As of September 2025, there are 107 LA metro rail stations.
+- Key Facts:
+  - The Los Angeles County Metropolitan Transportation Authority (LACMTA) operates the LA Metro Rail system.
+  - The system includes 107 stations as of September 2025 (source: en.wikipedia.org).",How many LA metro rail stations are there?,There are 107 LA Metro Rail stations.,['107'],correct,correct,['107'],correct,correct
+159,How many properties are there in the latest list of World Heritage in danger?,"Premise: Uncertain - The evidence did not provide the specific number of properties on the World Heritage in danger list as of July 2025.
+
+Verdict: Uncertain
+
+Direct Answer: The current number of properties on the World Heritage in danger list as of July 2025 is not available from the evidence provided.
+
+Key Facts:
+- The most recent update to the World Heritage in danger list was on July 11, 2025 (source: www.unesco.org).
+- As of April 2024, there were 56 entries on the list, but this information is outdated (source: en.wikipedia.org).
+
+If Needed: Further verification from official UNESCO publications or recent news updates is required to determine the current number of properties on the list.",How many properties are there in the latest list of World Heritage in danger?,"As of April 2024, there are 56 entries on the List of World Heritage in Danger.",['53'],incorrect,incorrect,['53'],incorrect,unknown
+160,Who won the biggest single-tournament payday in tennis history?,"1) Prerequisite You Were Checking:
+   - Verify if this record is still standing as of today.
+
+2) Evidence-Based Status:
+   - Verified. The evidence does not contradict the status of Elena Rybakina's record payday, and no new record has been indicated, suggesting it still stands as of today.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who currently holds the record for the biggest single-tournament payday in tennis history. [Verified]
+   - Timeframe: Confirm the date when this record was set. [Verified]
+   - Definition / Status: Verify if this record is still standing as of today. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Elena Rybakina won the biggest single-tournament payday in tennis history with a £4 million prize at the WTA Finals in Riyadh in November 2025.
+- Key Facts:
+  - Elena Rybakina won a record £4 million prize at the WTA Finals in Riyadh. (BBC, Nov 08, 2025)
+  - This record was",Who won the biggest single-tournament payday in tennis history?,"Jannik Sinner won the biggest single-tournament payday in tennis history, earning 4,881,100 US dollars.","['Carlos Alcaraz', 'Alcaraz', 'Carlos Alcaraz Garfia']",incorrect,incorrect,"['Carlos Alcaraz', 'Alcaraz', 'Carlos Alcaraz Garfia']",incorrect,unknown
+161,What's the largest stadium by capacity in the world?,"1) Prerequisite You Were Checking:
+   - I was verifying the capacity of the identified stadium, Narendra Modi Stadium, to confirm it is indeed the largest.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that the Narendra Modi Stadium has a seating capacity of 132,000, making it the largest stadium by capacity.
+
+3) Updated Fact Ladder:
+   - Identity: Identify the stadium currently recognized as the largest by capacity. [Verified]
+   - Timeframe: Confirm the date of the information to ensure it is current. [Verified]
+   - Definition / Status: Verify the capacity of the identified stadium. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The largest stadium by capacity in the world is the Narendra Modi Stadium with a capacity of 132,000.
+- Key Facts:
+  - Narendra Modi Stadium is located in Ahmedabad, India, and has a seating capacity of 132,000. (Source: icc-cricket.com, Oct 24, 2025)
+  - It is recognized as the largest stadium in the world as of",What's the largest stadium by capacity in the world?,"The largest stadium by capacity in the world is the Rungrado 1st of May Stadium in North Korea, with a capacity of 150,000.",['Rungrado 1st of May Stadium'],incorrect,correct,['Rungrado 1st of May Stadium'],incorrect,correct
+162,What is the title of Taylor Swift's most recent studio album?,"1) Prerequisite You Were Checking:
+   - Determine the release date of Taylor Swift's most recent studio album.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Taylor Swift's most recent studio album, ""The Life of a Showgirl,"" was released on October 3, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who Taylor Swift is, to ensure we are discussing the correct artist. [Unresolved]
+   - Timeframe: Determine the release date of Taylor Swift's most recent studio album. [Verified]
+   - Wording/Quote: Confirm the exact title of the most recent studio album. [Verified]
+
+4) Next Step:
+   - Since the title of the most recent studio album has been verified as ""The Life of a Showgirl,"" I can now provide the final answer without further tool usage.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The title of Taylor Swift's most recent studio album is ""The Life of a Showgirl.""
+- Key Facts: 
+  - ""The Life of a Showgirl"" was released on October 3, 2025.",What is the title of Taylor Swift's most recent studio album?,"The title of Taylor Swift's most recent studio album is ""The Life of a Showgirl.""",['The Life of a Showgirl'],correct,incorrect,['The Life of a Showgirl'],correct,correct
+163,What month and year did Bitcoin reach its peak value?,"1) Prerequisite You Were Checking:
+   - I was verifying the timeframe: ""Identify the specific month and year when Bitcoin reached its all-time high value.""
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Bitcoin reached its all-time high value of $111,970 in May 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine what is meant by ""peak value"" in the context of Bitcoin (e.g., all-time high price). [Verified]
+   - Timeframe: Identify the specific month and year when Bitcoin reached its all-time high value. [Verified]
+   - Definition / Status: Confirm the exact value of Bitcoin at its peak to ensure accuracy. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Bitcoin reached its peak value in May 2025.
+- Key Facts:
+  - Bitcoin reached an all-time high of $111,970 in May 2025. (Source: en.wikipedia.org)",What month and year did Bitcoin reach its peak value?,Bitcoin reached its peak value in October 2025.,"['October 2025', '10/2025']",incorrect,correct,"['October 2025', '10/2025']",incorrect,correct
+164,Is there a total solar eclipse in the continental US this year?,"1) Prerequisite You Were Checking:
+   - Check if a total solar eclipse is scheduled to occur in the continental US in 2025.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence indicates that there is no solar eclipse, total or partial, occurring in 2025 in the continental US. NASA and other observatories have confirmed this.
+
+3) Updated Fact Ladder:
+   - Timeframe — Verify the current year is 2025. [Verified]
+   - Definition / Status — Check if a total solar eclipse is scheduled to occur in the continental US in 2025. [Contradicted]
+
+4) Next Step:
+   - Since all prerequisites are now resolved, I will provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: False
+- Verdict: No
+- Direct Answer: There is no total solar eclipse in the continental US in 2025.
+- Key Facts: 
+  - NASA and other observatories have confirmed that no solar eclipse, total or partial, is occurring in 2025 in the continental US.",Is there a total solar eclipse in the continental US this year?,"No, there is not a total solar eclipse in the continental US this year.",['No'],correct,correct,['No'],correct,correct
+165,Who is the President of the United States?,"1) Prerequisite You Were Checking:
+   - Verify who currently holds the office of the President of the United States.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Donald J. Trump is the current President of the United States as of November 2025, having been inaugurated as the 47th president on January 20, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who currently holds the office of the President of the United States. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The current President of the United States is Donald J. Trump.
+- Key Facts:
+  - Donald J. Trump is serving as the 47th President of the United States.
+  - He was inaugurated on January 20, 2025. (Source: en.wikipedia.org, usa.gov)",Who is the President of the United States?,The President of the United States is Donald J. Trump.,"['Donald Trump', 'Donald John Trump']",incorrect,correct,"['Donald Trump', 'Donald John Trump']",incorrect,unknown
+166,Who is the most recent player to win both the PDC World Youth Championship and the PDC World Darts Championship?,"1) Prerequisite You Were Checking:
+   - Check if any player has won both the PDC World Youth Championship and the PDC World Darts Championship.
+
+2) Evidence-Based Status:
+   - Verified: The evidence confirms that Luke Littler won the PDC World Youth Championship in 2023 and the PDC World Darts Championship in 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who the most recent winner of the PDC World Youth Championship is. [Verified]
+   - Identity: Determine who the most recent winner of the PDC World Darts Championship is. [Verified]
+   - Mapping/Other: Check if any player has won both championships. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Luke Littler is the most recent player to win both the PDC World Youth Championship and the PDC World Darts Championship.
+- Key Facts:
+  - Luke Littler won the PDC World Youth Championship in 2023. (Source: BBC, Oct 13, 2025)
+  - Luke",Who is the most recent player to win both the PDC World Youth Championship and the PDC World Darts Championship?,Luke Littler,['Luke Littler'],correct,correct,['Luke Littler'],correct,correct

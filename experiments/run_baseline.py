@@ -45,7 +45,7 @@ def build_question_block(q, model):
 
 def main():
     os.makedirs("data/results", exist_ok=True)
-    df = pd.read_csv(INPUT).iloc[:5].copy()
+    df = pd.read_csv(INPUT).iloc[:20].copy()
     if "model_response" not in df.columns:
         df["model_response"] = None
 
