@@ -9,6 +9,15 @@ from openai import OpenAI, RateLimitError, APIError
 openai_client = None  # type: ignore[assignment]
 
 
+def _use_max_completion_tokens(model: str) -> bool:
+    """Some newer models (e.g., gpt-5 family) expect 'max_completion_tokens'."""
+    try:
+        m = str(model).lower()
+    except Exception:
+        m = str(model)
+    return m.startswith("gpt-5")
+
+
 def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
     """
     Unified OpenAI caller for both evaluation and prompt runners.
@@ -51,10 +60,9 @@ def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
         try:
             if chat_completions:
                 # Chat Completions API: concise system preamble (no date injection)
-                response = openai_client.chat.completions.create(
+                req = dict(
                     model=model,
                     temperature=temperature,
-                    max_tokens=max_tokens,
                     messages=[
                         {
                             "role": "system",
@@ -63,6 +71,11 @@ def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
                         {"role": "user", "content": prompt},
                     ],
                 )
+                if _use_max_completion_tokens(model):
+                    req["max_completion_tokens"] = max_tokens
+                else:
+                    req["max_tokens"] = max_tokens
+                response = openai_client.chat.completions.create(**req)
                 return response.choices[0].message.content or ""
             else:
                 # Legacy Completions API
@@ -124,9 +137,12 @@ def call_llm_messages(
     req = dict(
         model=model,
         temperature=temperature,
-        max_tokens=max_tokens,
         messages=messages,
     )
+    if _use_max_completion_tokens(model):
+        req["max_completion_tokens"] = max_tokens
+    else:
+        req["max_tokens"] = max_tokens
     if tools:
         req["tools"] = tools
         # default to auto when tools provided, unless caller overrides

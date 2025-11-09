@@ -88,21 +88,35 @@ def extract_direct_answer(final_text: str) -> str:
     if not t:
         return ""
 
-    # 1) Direct Answer line
-    m = re.search(r"(?im)^\s*Direct\s*Answer\s*:\s*(.+)$", t)
+    # 1) Direct Answer line (allow bullets and different separators)
+    m = re.search(r"(?im)^[\s\-•>*]*Direct\s*Answer\s*[:\-–]\s*(.*)$", t)
     if m:
-        return m.group(1).strip()
+        val = m.group(1).strip()
+        if val:
+            return val
+        # If empty on the same line, try the next non-empty line
+        after = t[m.end():].splitlines()
+        for line in after:
+            ls = line.strip()
+            if ls:
+                return ls
+        return ""
 
     # 2) After a 'Final Answer' header, take next non-empty line
-    fa = re.search(r"(?im)^\s*Final\s*Answer\s*:?(.*)$", t)
+    fa = re.search(r"(?im)^[\s\-•>*]*Final\s*Answer\s*[:\-–]?(.*)$", t)
     if fa:
-        tail = t[fa.end():].strip()
+        tail = t[fa.end() :].strip()
         for line in tail.splitlines():
             ls = line.strip()
             if ls:
                 return ls
 
-    # 3) Fallback: first non-empty line
+    # 3) If Verdict is present, return it (useful fallback for yes/no questions)
+    v = re.search(r"(?im)^[\s\-•>*]*Verdict\s*[:\-–]\s*(.+)$", t)
+    if v:
+        return v.group(1).strip()
+
+    # 4) Fallback: first non-empty line
     for line in t.splitlines():
         ls = line.strip()
         if ls:

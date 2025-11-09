@@ -8,8 +8,11 @@ from freshagent.freshprompt_demos import build_freshprompt_demo  # NEW
 
 load_dotenv()
 MODEL = os.getenv("MODEL_NAME", "gpt-4o")
-INPUT = "data/fresheval_relaxed_gpt-4o_top_184.csv"
-OUT = "data/freshQA_since24_first5.csv"
+INPUT = "data/results/freshQA_since24_full.csv"
+OUT = "data/results/freshQA_since24_full.csv"
+TMP = OUT + ".tmp"
+RESULT_COL = "model_response_freshprompt"
+CHECKPOINT_EVERY = 184
 
 # Controls for FreshPrompt variations
 CHECK_PREMISE = True  # original “check premise” line
@@ -45,9 +48,9 @@ def build_question_block(q, model):
 
 def main():
     os.makedirs("data/results", exist_ok=True)
-    df = pd.read_csv(INPUT).iloc[:20].copy()
-    if "model_response" not in df.columns:
-        df["model_response"] = None
+    df = pd.read_csv(INPUT).copy()  # full dataset
+    if RESULT_COL not in df.columns:
+        df[RESULT_COL] = None
 
     demo_block = ""
     if PROMPT_DEMO:
@@ -55,12 +58,25 @@ def main():
             MODEL, provider=PROVIDER, verbose=PROMPT_DEMO_VERBOSE
         )
 
+    processed = 0
     for i, q in df["question"].items():
+        # resume: skip filled
+        val = df.at[i, RESULT_COL]
+        if pd.notna(val) and str(val).strip():
+            continue
+
         q_prompt, hp = build_question_block(str(q), MODEL)
         full_prompt = (demo_block + q_prompt) if demo_block else q_prompt
-        ans = call_llm_api(full_prompt, MODEL, 0.0, hp["max_tokens"], hp["chat"])
-        df.at[i, "model_response"] = ans
-        print(f"[ok] {i}: {str(q)[:60]}...")
+        try:
+            ans = call_llm_api(full_prompt, MODEL, 0.0, hp["max_tokens"], hp["chat"])
+        except Exception as e:
+            ans = f"[ERROR] {type(e).__name__}: {e}"
+        df.at[i, RESULT_COL] = ans
+        processed += 1
+        print(f"[freshprompt] {i}: {str(q)[:60]}...")
+        if processed % CHECKPOINT_EVERY == 0:
+            df.to_csv(TMP, index=False, encoding="utf-8-sig")
+            print(f"[checkpoint] wrote {TMP}")
 
     df.to_csv(OUT, index=False, encoding="utf-8-sig")
     print("saved:", OUT)
