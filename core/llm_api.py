@@ -18,6 +18,18 @@ def _use_max_completion_tokens(model: str) -> bool:
     return m.startswith("gpt-5")
 
 
+def _omit_temperature(model: str) -> bool:
+    """Some newer models only allow default temperature; omit the param entirely.
+
+    Current behavior: omit for gpt-5 family.
+    """
+    try:
+        m = str(model).lower()
+    except Exception:
+        m = str(model)
+    return m.startswith("gpt-5")
+
+
 def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
     """
     Unified OpenAI caller for both evaluation and prompt runners.
@@ -62,7 +74,6 @@ def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
                 # Chat Completions API: concise system preamble (no date injection)
                 req = dict(
                     model=model,
-                    temperature=temperature,
                     messages=[
                         {
                             "role": "system",
@@ -71,6 +82,8 @@ def call_llm_api(prompt, model, temperature, max_tokens, chat_completions=True):
                         {"role": "user", "content": prompt},
                     ],
                 )
+                if not _omit_temperature(model):
+                    req["temperature"] = temperature
                 if _use_max_completion_tokens(model):
                     req["max_completion_tokens"] = max_tokens
                 else:
@@ -136,9 +149,10 @@ def call_llm_messages(
 
     req = dict(
         model=model,
-        temperature=temperature,
         messages=messages,
     )
+    if not _omit_temperature(model):
+        req["temperature"] = temperature
     if _use_max_completion_tokens(model):
         req["max_completion_tokens"] = max_tokens
     else:
