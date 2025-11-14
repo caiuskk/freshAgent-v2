@@ -62,7 +62,10 @@ def main():
     # Build ground truth list from answer_0..answer_9 columns (auto-detect)
     ans_cols = [c for c in df.columns if c.startswith("answer_")]
     if not ans_cols:
-        raise RuntimeError("No answer_* columns found; cannot evaluate without ground truth")
+        raise RuntimeError(
+            "No answer_* columns found; cannot evaluate without ground truth"
+        )
+
     def _answers_row_to_list(row):
         vals = []
         for c in ans_cols:
@@ -70,6 +73,7 @@ def main():
             if pd.notna(v) and str(v).strip():
                 vals.append(str(v).strip())
         return vals
+
     df["_gt_list"] = df.apply(_answers_row_to_list, axis=1)
 
     if args.limit is not None:
@@ -115,7 +119,9 @@ def main():
             total = int(s.sum())
             acc = float((out[col] == "correct").sum()) / total if total else 0.0
             unk = int((out[col] == "unknown").sum())
-            print(f"[summary] {args.mode} on {eval_col}: acc={acc:.3f}, unknown={unk}/{total}")
+            print(
+                f"[summary] {args.mode} on {eval_col}: acc={acc:.3f}, unknown={unk}/{total}"
+            )
 
 
 if __name__ == "__main__":
