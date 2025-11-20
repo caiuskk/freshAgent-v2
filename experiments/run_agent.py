@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from freshagent.agent import Agent, AgentConfig
 
 MODEL = os.getenv("MODEL_NAME", "gpt-4o")
-INPUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated_sample50.csv"
-OUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated_sample50_freshAgentAnswered.csv"
+INPUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated.csv"
+OUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated_freshAgentAnswered.csv"
 TMP = OUT + ".tmp"
 # Store both full and direct answers
 RESULT_COL = "agent_answer"
