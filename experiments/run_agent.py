@@ -3,16 +3,16 @@ import os
 import time
 import pandas as pd
 from dotenv import load_dotenv
-from freshagent.agent import Agent, AgentConfig, extract_direct_answer
+from freshagent.agent import Agent, AgentConfig
 
 MODEL = os.getenv("MODEL_NAME", "gpt-4o")
-INPUT = "data/results/freshQA_since24_full.csv"
-OUT = "data/results/freshQA_since24_full.csv"
+INPUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated_sample50.csv"
+OUT = "data/results/FreshQA_v2025_10_24_freshprompt_evaluated_sample50_freshAgentAnswered.csv"
 TMP = OUT + ".tmp"
 # Store both full and direct answers
-RESULT_COL = "model_response_agent_v1"
-RESULT_COL_DIRECT = RESULT_COL + "_direct"
-CHECKPOINT_EVERY = 186
+RESULT_COL = "agent_answer"
+RESULT_COL_DIRECT = "agent_direct_answer"
+CHECKPOINT_EVERY = 10
 
 
 def preflight():
@@ -47,32 +47,15 @@ def main():
         )
         if full_ok and direct_ok:
             continue
-
-        # If we already have full but missing direct, derive locally without LLM
-        if full_ok and not direct_ok:
-            try:
-                direct = extract_direct_answer(str(df.at[i, RESULT_COL]))
-            except Exception:
-                direct = ""
-            df.at[i, RESULT_COL_DIRECT] = direct
-            processed += 1
-            preview = (direct or str(df.at[i, RESULT_COL]))[:80]
-            print(f"[agent-fill-direct] {i}: {str(q)[:60]}... -> {preview}")
-            if processed % CHECKPOINT_EVERY == 0:
-                df.to_csv(TMP, index=False, encoding="utf-8-sig")
-                print(f"[checkpoint] wrote {TMP} at {time.strftime('%H:%M:%S')}")
-            continue
-
         try:
-            parts = agent.run_parts(str(q), dbg=False)
-            full, direct = parts.get("full", ""), parts.get("direct", "")
+            response, direct_answer = agent.run(str(q), dbg=False)
         except Exception as e:
-            full, direct = f"[ERROR] {type(e).__name__}: {e}", ""
-        df.at[i, RESULT_COL] = full
-        df.at[i, RESULT_COL_DIRECT] = direct
+            response, direct_answer = f"[ERROR] {type(e).__name__}: {e}", ""
+        df.at[i, RESULT_COL] = response
+        df.at[i, RESULT_COL_DIRECT] = direct_answer
         processed += 1
 
-        preview = (direct or full)[:80]
+        preview = (direct_answer or response)[:80]
         print(f"[agent] {i}: {str(q)[:60]}... -> {preview}")
         if processed % CHECKPOINT_EVERY == 0:
             df.to_csv(TMP, index=False, encoding="utf-8-sig")

@@ -47,7 +47,7 @@ def main():
     )
     ap.add_argument(
         "--mode",
-        default="robust",
+        required=True,
         choices=["robust", "relaxed-llm"],
         help="Evaluation mode (single run)",
     )
@@ -66,6 +66,7 @@ def main():
             "No answer_* columns found; cannot evaluate without ground truth"
         )
 
+    # Convert all available answers to list, save in _gt_list
     def _answers_row_to_list(row):
         vals = []
         for c in ans_cols:
@@ -81,6 +82,7 @@ def main():
 
     # Evaluate per response column using the chosen mode
     out = df.copy()
+
     for resp_col in args.response_cols:
         if resp_col not in out.columns:
             print(f"[warn] response column '{resp_col}' not found. Skipping.")
@@ -102,6 +104,7 @@ def main():
             mode=args.mode,
             model=args.model,
         )
+
         # Rename to requested pattern: <col>_evaluated and <col>_explaination
         out[f"{eval_col}_evaluated"] = evaluated[f"eval_label_{args.mode}"]
         out[f"{eval_col}_explaination"] = evaluated[f"eval_reason_{args.mode}"]

@@ -1,0 +1,917 @@
+﻿Unnamed: 0,id,split,question,effective_year,next_review,false_premise,num_hops,fact_type,source,answer_0,answer_1,answer_2,answer_3,answer_4,answer_5,answer_6,answer_7,answer_8,answer_9,note,freshprompt_answer,_gt_list,freshprompt_answer_evaluated,freshprompt_answer_explaination,agent_answer,agent_answeragent_direct_answer,agent_answeragent_direct_answer_evaluated,agent_answeragent_direct_answer_explaination
+42,42,TEST,By how many seats do Democrats currently control the United States Senate?,2025,occasionally,True,one-hop,slow-changing,"https://en.wikipedia.org/wiki/United_States_Senate#:~:text=Political%20groups,Republican%20(53)",Democrats currently do not control the US Senate.,"119th United States Congress, Republicans have majority control of the Senate.",,,,,,,,,,"The question does not contain a valid premise. According to the most up-to-date information, Republicans currently hold the majority in the United States Senate with 53 seats, while Democrats, including two independents who caucus with them, hold 47 seats. Therefore, Democrats do not control the Senate.","['Democrats currently do not control the US Senate.', '119th United States Congress, Republicans have majority control of the Senate.']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the current party composition of the United States Senate.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Republicans have the majority in the Senate with 53 seats, while Democrats have 47 seats, including two independents who caucus with Democrats.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the current party composition of the United States Senate. [Verified]
+   - Definition / Status: Confirm the number of seats controlled by Democrats. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: No
+- Direct Answer: Democrats do not currently control the United States Senate; Republicans hold the majority.
+- Key Facts:
+  - As of November 2025, Republicans have 53 seats in the Senate, while Democrats have 47 seats, including two independents who caucus with them (source: about.bgov.com, Nov 07, 2025).",Democrats do not currently control the United States Senate; Republicans hold the majority.,correct,evaluation: correct
+43,43,TEST,Who is the X Corp.'s CEO?,2025,occasionally,True,one-hop,slow-changing,https://en.wikipedia.org/wiki/X_Corp.#:~:text=On%20July%209%2C%202025%2C%20Linda%20Yaccarino%20announced%20that%20she%20would%20be%20stepping%20down%20from%20the%20company.,X Corp. currently has no CEO following Linda Yaccarino's recent resignation.,,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Linda Yaccarino served as CEO of X Corp. from 2023 to 2025. However, she stepped down from her role in July 2025. The current CEO of X Corp. is not specified in the provided information.","[""X Corp. currently has no CEO following Linda Yaccarino's recent resignation.""]",correct,evaluation: correct,"Premise: Uncertain - The evidence does not provide clear information on who is the current CEO of X Corp as of November 2025.
+
+Verdict: Uncertain
+
+Direct Answer: The current CEO of X Corp as of November 2025 is not clearly identified in the available evidence.
+
+Key Facts:
+- Linda Yaccarino stepped down as CEO of X Corp in July 2025 (source: CNN, July 9, 2025).
+- There is no updated information on who succeeded her as CEO.
+
+If Needed: Further searches or updated sources are required to determine the current CEO of X Corp.",The current CEO of X Corp as of November 2025 is not clearly identified in the available evidence.,incorrect,evaluation: incorrect
+55,55,TEST,What two federal crimes has the most recent former President of the United States been convicted of?,2025,01/01/2029,True,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/Joe_Biden#:~:text=Biden%20(disambiguation).-,Joe%20Biden,-Official%20portrait%2C%202021","The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.",,,,,,,,,,,"The question contains an invalid premise. As of the latest information available, the most recent former President of the United States, Donald Trump, has not been convicted of any federal crimes.","[""The most recent former President of the United States, Joe Biden, hasn't been convicted of any federal crimes.""]",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was checking if Joe Biden has been convicted of any federal crimes.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Joe Biden was convicted of three federal firearms-related felony charges in June 2024 and pleaded guilty to tax charges in September 2024.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who the most recent former President of the United States is as of today. [Verified]
+   - Status: Check if Joe Biden has been convicted of any federal crimes. [Verified]
+   - Definition: Identify the specific federal crimes, if any, Joe Biden has been convicted of. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Joe Biden was convicted of three federal firearms-related felony charges and pleaded guilty to tax charges.
+- Key Facts:
+  - Joe Biden was convicted of three federal firearms-related felony charges in June 2024. (Source: en.wikipedia.org)
+  - He pleaded guilty to tax charges in September 2024. (Source: en",Joe Biden was convicted of three federal firearms-related felony charges and pleaded guilty to tax charges.,incorrect,evaluation: incorrect
+93,93,TEST,Alphabet's market capitalization reached its highest-ever recorded value during what month in 2021?,2025,,True,one-hop,never-changing,"https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization#:~:text=%E2%80%94-,15%20September%202025,-3%2C009","The all-time highest value of Alphabet was in September 2025, not in 2021.",,,,,,,,,,,The question does not contain a valid premise. There is no information indicating that Alphabet's market capitalization reached its highest-ever recorded value during any specific month in 2021.,"['The all-time highest value of Alphabet was in September 2025, not in 2021.']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify the highest market capitalization value reached by Alphabet in 2021.
+
+2) Evidence-Based Status:
+   - Verified
+   - The evidence from public.com indicates that Alphabet's market capitalization reached $1.92 trillion in 2021.
+
+3) Updated Fact Ladder:
+   1. Identity: Confirm the company referred to as ""Alphabet"" is indeed the parent company of Google. [Verified]
+   2. Timeframe: Determine the specific month in 2021 when Alphabet's market capitalization was at its highest. [Verified]
+   3. Definition / Status: Verify the highest market capitalization value reached by Alphabet in 2021. [Verified]
+   4. Wording / Quote: Confirm the exact month when this peak was recorded. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Alphabet's market capitalization reached its highest-ever recorded value in June 2021.
+- Key Facts:
+  - Alphabet's market capitalization was highest on June 30, 2021, at $1.759 trillion (",Alphabet's market capitalization reached its highest-ever recorded value in June 2021.,incorrect,evaluation: incorrect
+122,122,TEST,Who did Michael van Gerwen beat to win this year's PDC World Darts Championship?,2025,01/03/2026,True,one-hop,fast-changing,"https://en.wikipedia.org/wiki/PDC_World_Darts_Championship#Records_and_statistics:~:text=Paddy%20Power-,2025,%C2%A0Luke%20Littler,-(102.73)","Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.",,,,,,,,,,,"The question contains an invalid premise. Michael van Gerwen did not win this year's PDC World Darts Championship. Instead, Luke Littler won the championship by defeating Michael van Gerwen in the final.","['Michael van Gerwen lost to Luke Littler in the final, held on Friday January 3.']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Identify the winner of the 2025 PDC World Darts Championship.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from multiple sources, including Wikipedia and ESPN, confirms that Luke Littler won the 2025 PDC World Darts Championship by defeating Michael van Gerwen.
+
+3) Updated Fact Ladder:
+   1. Timeframe — Determine the year of the most recent PDC World Darts Championship. [Verified]
+   2. Identity — Identify the winner of the 2025 PDC World Darts Championship. [Verified]
+   3. Identity — Identify the runner-up of the 2025 PDC World Darts Championship. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: False
+- Verdict: No
+- Direct Answer: Michael van Gerwen did not win the 2025 PDC World Darts Championship; he was defeated by Luke Littler in the final.
+- Key Facts:
+  - Luke Littler won the 2025 PDC World Darts Championship, defeating Michael van Gerwen",Michael van Gerwen did not win the 2025 PDC World Darts Championship; he was defeated by Luke Littler in the final.,correct,evaluation: correct
+123,123,TEST,What does Elon Musk use to refer to his position as X Corp.'s chairman and CTO in his current Twitter/X bio?,2024,frequently,True,one-hop,fast-changing,https://twitter.com/elonmusk,Elon Musk's current Twitter/X bio does not mention anything about his position as X Corp.'s chairman and CTO.,nothing,,,,,,,,,,The question contains an invalid premise. There is no information indicating that Elon Musk refers to his position as X Corp.'s chairman and CTO in his current Twitter/X bio.,"[""Elon Musk's current Twitter/X bio does not mention anything about his position as X Corp.'s chairman and CTO."", 'nothing']",correct,evaluation: correct,"- Premise: Uncertain. The exact wording used by Elon Musk in his current Twitter/X bio to refer to his position as X Corp.'s chairman and CTO could not be verified.
+- Verdict: Uncertain
+- Direct Answer: The exact wording Elon Musk uses in his current Twitter/X bio to refer to his position as X Corp.'s chairman and CTO is not available.
+- Key Facts:
+  - Elon Musk is reportedly the Executive Chairman and CTO of X Corporation as of July 2025 (source: hostafrica.ng, July 15, 2025).
+  - Multiple searches did not yield the exact wording of Elon Musk's current Twitter/X bio.
+- If Needed: Further direct access to Elon Musk's Twitter/X profile would be required to confirm the exact wording.",The exact wording Elon Musk uses in his current Twitter/X bio to refer to his position as X Corp.'s chairman and CTO is not available.,correct,evaluation: correct
+153,153,TEST,What was the Weeknd's last studio album titled?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/The_Weeknd#Discography:~:text=FM%20(2022)-,Hurry%20Up%20Tomorrow%20(2025),-Filmography",Hurry Up Tomorrow,,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The Weeknd's last studio album is titled ""Hurry Up Tomorrow.""",['Hurry Up Tomorrow'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Confirm the exact title of The Weeknd's most recent studio album using a reliable source.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that the exact title of The Weeknd's studio album released on January 31, 2025, is ""Hurry Up Tomorrow.""
+
+3) Updated Fact Ladder:
+   - Identity: Verify who ""The Weeknd"" is to ensure there are no recent changes or confusions about the artist. [Verified]
+   - Timeframe: Determine the release date of The Weeknd's most recent studio album. [Verified]
+   - Wording/Quote: Confirm the exact title of The Weeknd's most recent studio album using a reliable source. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The Weeknd's last studio album is titled ""Hurry Up Tomorrow.""
+- Key Facts:
+  - ""Hurry Up Tomorrow"" is The Weeknd's sixth studio album, released on January 31, 2025. (Source: en.wikipedia.org, open.spotify","The Weeknd's last studio album is titled ""Hurry Up Tomorrow.""",correct,evaluation: correct
+154,154,TEST,"How many children does Elon Musk have, including his deceased child?",2025,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Elon_Musk#:~:text=at%20least%2014%20(including%20Vivian%20Wilson),14,fourteen,at least 14,at least fourteen,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Elon Musk has 14 children, including his first child, Nevada Alexander Musk, who tragically passed away as an infant.","['14', 'fourteen', 'at least 14', 'at least fourteen']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Confirm the current status of Elon Musk's children as of the latest available information.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that as of 2025, Elon Musk is the father of 14 children. It also confirms that his first child, Nevada Alexander Musk, died at just 10 weeks old due to SIDS.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the identity of Elon Musk's children. [Verified]
+   - Timeframe: Confirm the current status of Elon Musk's children as of the latest available information. [Verified]
+   - Definition / Status: Determine if any of Elon Musk's children are deceased. [Verified]
+   - Mapping / Other: Count the total number of children, including any deceased. [Unresolved]
+
+4) Next Step:
+   - Since all prerequisites except the final count are now verified, I will calculate the total number of children, including the deceased child, based on the verified identities and statuses. No further tool use is needed for this calculation. I will proceed to the Final Answer.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Elon Musk has",Elon Musk has,unknown,incorrect
+155,155,TEST,What is the name of NASA's latest telescope that can map the entire celestial sky in infrared light?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_space_telescopes#Infrared_and_submillimetre:~:text=%5B192%5D-,SPHEREx,-NASA",SPHEREx,,,,,,,,,,,The question contains a valid premise. The name of NASA's latest telescope that can map the entire celestial sky in infrared light is SPHEREx.,['SPHEREx'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the name of NASA's latest telescope designed to map the entire celestial sky in infrared light.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that NASA's latest telescope with the capability to map the entire celestial sky in infrared light is called SPHEREx.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the name of NASA's latest telescope designed to map the entire celestial sky in infrared light. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Premise: True
+Verdict: Yes
+Direct Answer: NASA's latest telescope that can map the entire celestial sky in infrared light is called SPHEREx.
+Key Facts:
+- SPHEREx will map the entire celestial sky in 102 infrared colors (source: www.jpl.nasa.gov, Jan 31, 2025).
+- The mission aims to illuminate the origins of the universe and study galaxies and life's key ingredients (source: www.nasa.gov, May 01, 2025).",NASA's latest telescope that can map the entire celestial sky in infrared light is called SPHEREx.,correct,evaluation: correct
+156,156,TEST,How many seats are there in the German Bundestag?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Bundestag#:~:text=Structure-,Seats,630,-Political%20groups",630,,,,,,,,,,,"The German Bundestag currently has 630 seats, following a ruling by Germany's top court allowing the downsizing from 733 seats.",['630'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify the current composition or structure of the German Bundestag.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from the 2025 German federal election indicates that there are 630 members in the 21st Bundestag, down from 736 in 2021 due to reforms in seat distribution.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current composition or structure of the German Bundestag. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The German Bundestag currently has 630 seats as of 2025.
+- Key Facts:
+  - The 2025 German federal election was held to elect 630 members of the Bundestag.
+  - This number is a reduction from 736 seats in 2021 due to reforms in seat distribution.",The German Bundestag currently has 630 seats as of 2025.,correct,evaluation: correct
+157,157,TEST,How many core faculty are there in the UMass NLP lab?,2025,occasionally,False,one-hop,slow-changing,"https://nlp.cs.umass.edu/members/#:~:text=multidisciplinary%20affiliates.-,Faculty,-Laure%20Thompson%0A%20%20%0ACultural",2,two,,,,,,,,,,"The question does not contain a valid premise, as there is no specific information provided in the sources about the number of core faculty in the UMass NLP lab.","['2', 'two']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Verify the current list of core faculty members in the UMass NLP lab.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from the UMass NLP lab website lists the core faculty members as Katrin Erk, Mohit Iyyer, Andrew McCallum, and Brendan O'Connor.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current list of core faculty members in the UMass NLP lab. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: There are four core faculty members in the UMass NLP lab.
+- Key Facts:
+  - The core faculty members listed are Katrin Erk, Mohit Iyyer, Andrew McCallum, and Brendan O'Connor (source: nlp.cs.umass.edu).",There are four core faculty members in the UMass NLP lab.,incorrect,evaluation: incorrect
+158,158,TEST,How many LA metro rail stations are there?,2025,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/List_of_Los_Angeles_Metro_Rail_stations#:~:text=The%20system%20includes%20107%20metro%20stations,107,,,,,,,,,,,"The question ""How many LA metro rail stations are there?"" contains a valid premise. As of the most recent information, the Los Angeles Metro Rail system consists of 107 stations.",['107'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Confirm the most recent update or report on the number of LA metro rail stations.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that as of September 2025, the LA Metro Rail system includes 107 stations.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the current entity responsible for the LA metro rail system. [Verified]
+   - Timeframe: Confirm the most recent update or report on the number of LA metro rail stations. [Verified]
+   - Definition / Status: Determine the exact number of LA metro rail stations as of the latest report. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: As of September 2025, there are 107 LA metro rail stations.
+- Key Facts:
+  - The Los Angeles County Metropolitan Transportation Authority (LACMTA) manages the LA metro rail system.
+  - As of September 2025, the system includes 107 stations, covering 121 miles of route service.","As of September 2025, there are 107 LA metro rail stations.",correct,evaluation: correct
+159,159,TEST,How many properties are there in the latest list of World Heritage in danger?,2025,occasionally,False,one-hop,slow-changing,"https://whc.unesco.org/en/danger-list/#:~:text=The-,53%20properties,-which%20the%20World",53,,,,,,,,,,,"The question contains a valid premise. As of the latest information, there are 56 entries on the List of World Heritage in Danger.",['53'],incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Confirm the number of properties currently listed as World Heritage in danger.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that as of November 2025, there are 53 properties on the List of World Heritage in Danger.
+
+3) Updated Fact Ladder:
+   1. Identity: Determine the organization responsible for maintaining the World Heritage in danger list. [Verified]
+   2. Timeframe: Identify the date of the most recent update to the World Heritage in danger list. [Verified]
+   3. Definition / Status: Confirm the number of properties currently listed as World Heritage in danger. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: As of November 2025, there are 53 properties on the List of World Heritage in Danger.
+- Key Facts:
+  - The List of World Heritage in Danger is maintained by UNESCO.
+  - As of November 2025, there are 53 entries on the list (source: en.wikipedia.org).","As of November 2025, there are 53 properties on the List of World Heritage in Danger.",correct,evaluation: correct
+160,160,TEST,Who won the biggest single-tournament payday in tennis history?,2025,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/ATP_Finals#:~:text=By%20winning%20the%202024%20title%2C%20Sinner%20earned%20a%20record%20%244%2C881%2C100%2C%20the%20second%20highest%20payout%20for%20a%20tournament%20winner%20in%20tennis%2C%20only%20after%20the%205%20million%20dollars%20prize%20won%20by%20Carlos%20Alcaraz%20at%20the%202025%20US%20Open%20%E2%80%93%20Men%27s%20singles.,Carlos Alcaraz,Alcaraz,Carlos Alcaraz Garfia,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, Elena Rybakina won the biggest single-tournament payday in tennis history, setting a new record for the most prize money won by a tennis player at a single tournament.","['Carlos Alcaraz', 'Alcaraz', 'Carlos Alcaraz Garfia']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Definition / Status: Verify if this record is still standing as the biggest payday.
+
+2) Evidence-Based Status:
+   - Verified: The evidence confirms that Jannik Sinner's $5,071,000 payday at the 2025 ATP Finals is currently the largest single-tournament payout in tennis history, surpassing the previous record set at the 2025 US Open.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who currently holds the record for the biggest single-tournament payday in tennis history. [Verified]
+   - Timeframe: Confirm the date when this record was set. [Verified]
+   - Definition / Status: Verify if this record is still standing as the biggest payday. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Jannik Sinner won the biggest single-tournament payday in tennis history with $5,071,000 at the 2025 ATP Finals.
+- Key Facts:
+  - Jannik Sinner's record payday was achieved at the ATP Finals on November 16, 2025","Jannik Sinner won the biggest single-tournament payday in tennis history with $5,071,000 at the 2025 ATP Finals.",incorrect,evaluation: incorrect
+161,161,TEST,What's the largest stadium by capacity in the world?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_stadiums_by_capacity#Capacity_of_100,000_or_more:~:text=Image-,Narendra%20Modi%20Stadium,-114%2C600%5B1",Narendra Modi Stadium,,,,,,,,,,,"The question contains a valid premise. As of the most recent information, the largest stadium by capacity in the world is the Rungrado 1st of May Stadium in Pyongyang, North Korea, with a capacity of 150,000.",['Narendra Modi Stadium'],incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - I was verifying the identity of the stadium currently recognized as the largest by capacity.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that the Narendra Modi Stadium is currently the largest stadium in the world by capacity, with a capacity of 136,000 spectators.
+
+3) Updated Fact Ladder:
+   - Identity: Determine which stadium is currently recognized as the largest by capacity. [Verified]
+   - Wording/Quote: Confirm the exact capacity and name of the stadium. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The largest stadium by capacity in the world is the Narendra Modi Stadium, with a capacity of 136,000 spectators.
+- Key Facts:
+  - The Narendra Modi Stadium is located in India and has a capacity of 136,000 spectators. (Source: mastt.com, Oct 2025)
+  - The Rungrado May First Stadium in North Korea is the second largest, with a capacity of 114,000 spectators. (Source: facebook.com,","The largest stadium by capacity in the world is the Narendra Modi Stadium, with a capacity of 136,000 spectators.",correct,evaluation: correct
+162,162,TEST,What is the title of Taylor Swift's most recent studio album?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Taylor_Swift_albums_discography#Studio_albums:~:text=%5B94%5D-,The%20Life%20of%20a%20Showgirl,Released%3A%20October%203%2C%202025,-Label%3A%20Republic",The Life of a Showgirl,,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The title of Taylor Swift's most recent studio album is ""The Life of a Showgirl,"" released on October 3, 2025.",['The Life of a Showgirl'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the exact title of the most recent studio album by Taylor Swift.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that the exact title of Taylor Swift's most recent studio album is ""The Life of a Showgirl.""
+
+3) Updated Fact Ladder:
+   - Identity: Verify who Taylor Swift is, ensuring no confusion with another artist. [Verified]
+   - Timeframe: Confirm the release date of Taylor Swift's most recent studio album. [Verified]
+   - Wording/Quote: Determine the exact title of the most recent studio album by Taylor Swift. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The title of Taylor Swift's most recent studio album is ""The Life of a Showgirl.""
+- Key Facts:
+  - ""The Life of a Showgirl"" is Taylor Swift's twelfth studio album.
+  - It was released on October 3, 2025, through Republic Records.","The title of Taylor Swift's most recent studio album is ""The Life of a Showgirl.""",incorrect,evaluation: incorrect
+163,163,TEST,Who is the current Prime Minister of Japan?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Prime_Minister_of_Japan#:~:text=Incumbent%0ASanae%20Takaichi
+https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Japan#List_of_prime_ministers:~:text=Sanae%20Takaichi%0A%E9%AB%98,Incumbent",Sanae Takaichi,,,,,,,,,,,"As of today, November 15, 2025, the current Prime Minister of Japan is Sanae Takaichi.",['Sanae Takaichi'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify who currently holds the office of Prime Minister of Japan.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Sanae Takaichi is the current Prime Minister of Japan as of October 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who currently holds the office of Prime Minister of Japan. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The current Prime Minister of Japan is Sanae Takaichi.
+- Key Facts:
+  - Sanae Takaichi has served as Prime Minister of Japan since October 2025. (Source: en.wikipedia.org)
+  - She is the first woman to hold the position of Prime Minister in Japan. (Source: en.wikipedia.org)",The current Prime Minister of Japan is Sanae Takaichi.,incorrect,evaluation: incorrect
+164,164,TEST,What is the second highest-grossing Kannada movie of all time?,2025,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_highest-grossing_Kannada_films#:~:text=%5Bb%5D-,2,2025,-%5B22%5D",Kantara: Chapter 1,,,,,,,,,,,"The question contains a valid premise. As of the most recent information, ""Kantara: A Legend - Chapter 1"" is the second highest-grossing Kannada movie of all time.",['Kantara: Chapter 1'],incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - I was verifying the Definition/Status prerequisite: ""Verify the ranking of the second highest-grossing movie.""
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that ""Mahavatar Narsimha"" grossed between ₹300–325 crore worldwide, making it the second highest-grossing Kannada movie as of 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the current highest-grossing Kannada movies. [Verified]
+   - Timeframe: Confirm the date of the information to ensure it is up-to-date. [Verified]
+   - Definition / Status: Verify the ranking of the second highest-grossing movie. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The second highest-grossing Kannada movie of all time is ""Mahavatar Narsimha.""
+- Key Facts:
+  - ""Kantara: Chapter 1"" is the highest-grossing Kannada movie with ₹960 crore. (Source: Wikipedia, Filmibeat)
+  - ""","The second highest-grossing Kannada movie of all time is ""Mahavatar Narsimha.""",incorrect,evaluation: incorrect
+165,165,TEST,What month and year did Bitcoin reach its peak value?,2025,frequently,False,one-hop,slow-changing,https://www.google.com/finance/quote/BTC-USD?hl=en&window=5Y,October 2025,10/2025,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Bitcoin reached its peak value in October 2025, with a recorded price of $126,210.50 on October 6, 2025.","['October 2025', '10/2025']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was verifying the definition/status: ""Confirm that this value is indeed the highest recorded for Bitcoin.""
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that $126,251 is the highest recorded value for Bitcoin, as it was reached on October 6, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine what is meant by ""peak value"" in the context of Bitcoin (e.g., all-time high price). [Verified]
+   - Timeframe: Identify the specific month and year when Bitcoin reached its all-time high value. [Verified]
+   - Definition / Status: Confirm that this value is indeed the highest recorded for Bitcoin. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Bitcoin reached its peak value of $126,251 in October 2025.
+- Key Facts:
+  - Bitcoin's all-time high value was $126,251, reached on October 6, 2025 (source: finance.yahoo.com, Nov 16, 2025).","Bitcoin reached its peak value of $126,251 in October 2025.",correct,evaluation: correct
+166,166,TEST,Is there a total solar eclipse in the continental US this year?,2025,01/01/2044,False,one-hop,slow-changing,https://www.cbsnews.com/news/next-total-solar-eclipse-2044-2045/#:~:text=The%20awe%2Dinspiring%20experience%20won%27t%20happen%20in%20the%20U.S.%20again%20until%202044%2C%20with%20only%20three%20states%20in%20the%20path%2C%20and%202045%2C%20with%20more%20than%20a%20dozen%20states%20in%20the%20path.,No,,,,,,,,,,,"The question contains an invalid premise. As of today, November 15, 2025, there is no total solar eclipse occurring in the continental US this year. The most recent total solar eclipse visible in the US was on April 8, 2024.",['No'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Check if a total solar eclipse is scheduled to occur in the continental US in 2025.
+
+2) Evidence-Based Status:
+   - Contradicted. The evidence indicates that there are no total solar eclipses scheduled to occur in the continental US in 2025. The solar eclipses mentioned for 2025 are in northwestern Africa, Europe, northwestern Russia, New Zealand, and Antarctica.
+
+3) Updated Fact Ladder:
+   - Timeframe — Verify the current year is 2025. [Verified]
+   - Definition / Status — Check if a total solar eclipse is scheduled to occur in the continental US in 2025. [Contradicted]
+
+4) Next Step:
+   - Since all prerequisites are now resolved, I will provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: False
+- Verdict: No
+- Direct Answer: There is no total solar eclipse in the continental US in 2025.
+- Key Facts: 
+  - The solar eclipses in 2025 are scheduled for northwestern Africa, Europe, northwestern Russia, New Zealand, and Antarctica.",There is no total solar eclipse in the continental US in 2025.,correct,evaluation: correct
+167,167,TEST,Who is the President of the United States?,2025,01/01/2029,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/President_of_the_United_States#:~:text=Incumbent%0ADonald%20Trump,Donald Trump,Donald John Trump,,,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The current President of the United States is Donald John Trump.","['Donald Trump', 'Donald John Trump']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify who currently holds the office of the President of the United States.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Donald J. Trump is the current President of the United States as of November 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who currently holds the office of the President of the United States. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Donald J. Trump is the President of the United States as of November 2025.
+- Key Facts:
+  - Donald J. Trump is identified as the 47th President of the United States, serving from 2025 to 2029. (Source: whitehouse.gov, bookstore.gpo.gov, en.wikipedia.org)",Donald J. Trump is the President of the United States as of November 2025.,correct,evaluation: correct
+168,168,TEST,Who is the most recent player to win both the PDC World Youth Championship and the PDC World Darts Championship?,2025,01/03/2026,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/PDC_World_Darts_Championship#:~:text=Paddy%20Power-,2025,%C2%A0Luke%20Littler,-(102.73)
+https://en.wikipedia.org/wiki/Luke_Littler#:~:text=In%20his%20youth%20career%2C%20Littler%20won%20the%202023%20PDC%20World%20Youth%20Championship",Luke Littler,,,,,,,,,,,The question contains a valid premise. The most recent player to win both the PDC World Youth Championship and the PDC World Darts Championship is Luke Littler. He won the PDC World Youth Championship in 2023 and the PDC World Darts Championship in 2025.,['Luke Littler'],incorrect,evaluation: incorrect,"- Premise: Uncertain. The evidence does not clearly confirm if any player has won both the PDC World Youth Championship and the PDC World Darts Championship.
+- Verdict: Uncertain
+- Direct Answer: It is unclear if any player has won both the PDC World Youth Championship and the PDC World Darts Championship.
+- Key Facts:
+  - Beau Greaves won the PDC World Youth Championship in 2025. (Source: theguardian.com, Oct 14, 2025)
+  - Luke Littler won the PDC World Darts Championship in 2025. (Source: ESPN, Nov 10, 2025)
+- If Needed: Further verification from official PDC records or announcements would be necessary to confirm if any player has achieved both titles.",It is unclear if any player has won both the PDC World Youth Championship and the PDC World Darts Championship.,incorrect,evaluation: incorrect
+169,169,TEST,How many asteroids have been discovered before impacting Earth?,2024,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Asteroid_impact_prediction#List_of_successfully_predicted_asteroid_impacts,11,eleven,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, nine asteroids have been discovered before impacting Earth.","['11', 'eleven']",incorrect,evaluation: incorrect,"Premise: Uncertain - The evidence does not provide specific information on the number of asteroids discovered before impacting Earth by 2025.
+
+Verdict: Uncertain
+
+Direct Answer: The number of asteroids discovered before impacting Earth by 2025 is not clearly specified in the available evidence.
+
+Key Facts:
+- The evidence includes general information about near-Earth asteroids and their close approaches but lacks specific data on pre-impact discoveries.
+- As of November 2025, the total number of identified near-Earth asteroids surpassed 40,000 (source: esa.int).
+
+If Needed: Further specific searches or access to specialized databases may be required to obtain precise figures on asteroids discovered before impact.",The number of asteroids discovered before impacting Earth by 2025 is not clearly specified in the available evidence.,incorrect,evaluation: incorrect
+170,170,TEST,Which country is the most recent member state of the Schengen Area?,2024,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Schengen_Area#:~:text=Romania%20and%20Bulgaria%20are%20the%20newest%20members%20of%20the%20Schengen%20Area,Bulgaria and Romania,Bulgaria,Romania,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most recent member states of the Schengen Area are Bulgaria and Romania, which joined on January 1, 2025.","['Bulgaria and Romania', 'Bulgaria', 'Romania']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine which country is the most recent member state of the Schengen Area.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Bulgaria and Romania are the most recent countries to join the Schengen Area, effective January 1, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine which country is the most recent member state of the Schengen Area. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Bulgaria and Romania are the most recent member states of the Schengen Area, having joined on January 1, 2025.
+- Key Facts:
+  - Bulgaria and Romania officially joined the Schengen Area on January 1, 2025 (source: home-affairs.ec.europa.eu).
+  - This expansion was confirmed by multiple sources, including the European Commission and other reputable outlets.","Bulgaria and Romania are the most recent member states of the Schengen Area, having joined on January 1, 2025.",correct,evaluation: correct
+171,171,TEST,What is Greg Egan's latest novel?,2024,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Greg_Egan#Novels:~:text=Morphotrophic%20(2024),Morphotrophic,,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Greg Egan's latest novel is ""Morphotrophic,"" released in 2024.",['Morphotrophic'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Confirm the title of the latest novel by Greg Egan.
+
+2) Evidence-Based Status:
+   - Still Unclear. The evidence did not provide any new information about a novel release by Greg Egan in 2025. It only mentioned a novella titled ""Spare Parts of the Mind"" featured in a magazine.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who Greg Egan is to ensure we are discussing the correct author. [Verified]
+   - Timeframe: Determine the most recent publication date of Greg Egan's works. [Unresolved]
+   - Definition / Status: Confirm the title of the latest novel by Greg Egan. [Unresolved]
+
+4) Next Step:
+   - Given the lack of clear evidence, I will conclude that ""Morphotrophic,"" released in March 2024, is the latest known novel by Greg Egan as of now. I will proceed to provide the final answer based on this information.
+Final Answer — Answer Contract:
+
+- Premise: Uncertain (No clear evidence of a novel release by Greg Egan in 2025 was found; the latest known novel is from 2024.)
+- Verdict: Uncertain
+-",- Premise: Uncertain (No clear evidence of a novel release by Greg Egan in 2025 was found; the latest known novel is from 2024.),unknown,incorrect
+172,172,TEST,Who is the current Prime Minister of the United Kingdom?,2024,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Prime_Minister_of_the_United_Kingdom#:~:text=Incumbent%0AKeir%20Starmer,Keir Starmer,Sir Keir Rodney Starmer,,,,,,,,,,"As of today, November 15, 2025, the current Prime Minister of the United Kingdom is Keir Starmer.","['Keir Starmer', 'Sir Keir Rodney Starmer']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify who currently holds the office of the Prime Minister of the United Kingdom.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Sir Keir Starmer has been serving as the Prime Minister of the United Kingdom since 2024, and he is still in office as of November 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who currently holds the office of the Prime Minister of the United Kingdom. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The current Prime Minister of the United Kingdom is Sir Keir Starmer.
+- Key Facts:
+  - Sir Keir Starmer has been serving as the Prime Minister since July 5, 2024. (Source: gov.uk)
+  - As of November 2025, he remains in office. (Source: Al Jazeera, Nov 14, 2025)",The current Prime Minister of the United Kingdom is Sir Keir Starmer.,incorrect,evaluation: incorrect
+173,173,TEST,Who is the most recent former Prime Minister of the United Kingdom?,2024,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom#:~:text=Rishi%20Sunak,year%2C%20255%C2%A0days",Rishi Sunak,,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most recent former Prime Minister of the United Kingdom is Rishi Sunak, who served from October 2022 to July 2024.",['Rishi Sunak'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was verifying if there have been any recent changes in the Prime Minister's office.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Keir Starmer is still the current Prime Minister as of November 20, 2025, with no recent changes in the office.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who is the current Prime Minister of the United Kingdom to identify the most recent former one. [Verified]
+   - Timeframe: Confirm the date when the current Prime Minister took office to ensure the sequence of officeholders. [Verified]
+   - Definition / Status: Verify if there have been any recent changes in the Prime Minister's office. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The most recent former Prime Minister of the United Kingdom is Rishi Sunak.
+- Key Facts:
+  - Keir Starmer is the current Prime Minister of the United Kingdom, having taken office on July 5, 2024. (Source: gov",The most recent former Prime Minister of the United Kingdom is Rishi Sunak.,incorrect,evaluation: incorrect
+174,174,TEST,Who is the highest-paid athlete in the world?,2024,occasionally,False,one-hop,slow-changing,https://en.wikipedia.org/wiki/Forbes_list_of_the_world%27s_highest-paid_athletes#2025_list,Cristiano Ronaldo,Ronaldo,CR7,Cristiano Ronaldo dos Santos Aveiro,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Cristiano Ronaldo is the highest-paid athlete in the world.","['Cristiano Ronaldo', 'Ronaldo', 'CR7', 'Cristiano Ronaldo dos Santos Aveiro']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was verifying the identity of the current highest-paid athlete in the world.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from multiple sources, including Forbes and Wikipedia, consistently states that Cristiano Ronaldo is the highest-paid athlete in 2025, with earnings of $275 million.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who is currently recognized as the highest-paid athlete in the world. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Cristiano Ronaldo is the highest-paid athlete in the world in 2025.
+- Key Facts: 
+  - Cristiano Ronaldo earned $275 million in 2025, making him the highest-paid athlete according to Forbes and other sources.",Cristiano Ronaldo is the highest-paid athlete in the world in 2025.,correct,evaluation: correct
+175,175,TEST,What is the most recent outbreak declared as a public health emergency of international concern by WHO?,2024,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Public_health_emergency_of_international_concern#:~:text=%5B9%5D-,Clade%20I%20mpox,-(2024%E2%80%93present)",Clade I mpox,Mpox,mpox outbreak,Monkeypox,monkeypox outbreak,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most recent outbreak declared as a public health emergency of international concern by the World Health Organization (WHO) is the mpox outbreak, declared on August 14, 2024.","['Clade I mpox', 'Mpox', 'mpox outbreak', 'Monkeypox', 'monkeypox outbreak']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the most recent outbreak declared as a public health emergency of international concern by WHO.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that the most recent outbreak declared as a public health emergency of international concern by WHO was the mpox outbreak, declared on August 14, 2024.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the most recent outbreak declared as a public health emergency of international concern by WHO. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The most recent outbreak declared as a public health emergency of international concern by WHO is the mpox outbreak, declared on August 14, 2024.
+- Key Facts:
+  - The mpox outbreak was declared a public health emergency of international concern by WHO on August 14, 2024. (Source: WHO, ajtmh.org)","The most recent outbreak declared as a public health emergency of international concern by WHO is the mpox outbreak, declared on August 14, 2024.",correct,evaluation: correct
+176,176,TEST,How much does Costco Executive membership cost annually?,2024,occasionally,False,one-hop,slow-changing,https://customerservice.costco.com/app/answers/answer_view/a_id/857#:~:text=%24130.00%20Annual%20membership%20fee%20(%2465%20membership%20fee%2C%20plus%20%2465%20upgrade%20fee)*,$130,,,,,,,,,,,"The question contains a valid premise. As of the most recent information, a Costco Executive membership costs $130 annually.",['$130'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the current annual cost of the Costco Executive membership.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from multiple sources, including NBC News and NerdWallet, confirms that the current annual cost of the Costco Executive Membership is $130.
+
+3) Updated Fact Ladder:
+   - Identity: Verify that Costco Executive membership is a current offering by Costco. [Verified]
+   - Definition / Status: Determine the current annual cost of the Costco Executive membership. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Premise: True
+Verdict: Yes
+Direct Answer: The annual cost of a Costco Executive membership is $130 as of 2025.
+Key Facts:
+- The Executive Membership costs $130 per year, offering additional savings and benefits. (Source: NBC News, NerdWallet, October 2025)
+- This membership includes perks such as a 2% reward on qualified purchases. (Source: NBC News, October 2025)",The annual cost of a Costco Executive membership is $130 as of 2025.,correct,evaluation: correct
+177,177,TEST,What is the name of the world's fastest supercomputer?,2024,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/TOP500#TOP_500:~:text=Operating%0Asystem-,1,El%20Capitan,-HPE%20Cray%20EX255a",El Capitan,Hewlett Packard Enterprise El Capitan,,,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The world's fastest supercomputer is named El Capitan.","['El Capitan', 'Hewlett Packard Enterprise El Capitan']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine which supercomputer is currently recognized as the world's fastest.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that ""El Capitan"" is currently recognized as the world's fastest supercomputer, as it retains the title on the latest Top500 list according to multiple sources, including Lawrence Livermore National Laboratory and HPE.
+
+3) Updated Fact Ladder:
+   - Identity: Determine which supercomputer is currently recognized as the world's fastest. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The world's fastest supercomputer is named ""El Capitan.""
+- Key Facts:
+  - ""El Capitan"" is recognized as the world's fastest supercomputer as of November 2025. (Source: Lawrence Livermore National Laboratory, Nov 17, 2025)
+  - It has retained the top spot on the Top500 list of the world's most powerful supercomputers. (Source: HPE, Nov 17, 2025)","The world's fastest supercomputer is named ""El Capitan.""",correct,evaluation: correct
+178,178,TEST,On what date did Kendrick Lamar release his most recent studio album?,2024,occasionally,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Kendrick_Lamar#Discography:~:text=Steppers%20(2022)-,GNX%20(2024),-Filmography
+https://en.wikipedia.org/wiki/GNX_(album)#:~:text=by%20Kendrick%20Lamar-,Released,November%C2%A022%2C%C2%A02024,-Recorded","Nov 22, 2024","November 22, 2024",22 Nov 2024,22 November 2024,11/22/2024,11-22-2024,22/11/2024,22-11-2024,2024/11/22,2024-11-22,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Kendrick Lamar released his most recent studio album, ""GNX,"" on November 22, 2024.","['Nov 22, 2024', 'November 22, 2024', '22 Nov 2024', '22 November 2024', '11/22/2024', '11-22-2024', '22/11/2024', '22-11-2024', '2024/11/22', '2024-11-22']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the release date of Kendrick Lamar's most recent studio album.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Kendrick Lamar's most recent studio album, titled ""GNX,"" was released on November 22, 2024.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who Kendrick Lamar is to ensure we are discussing the correct artist. [Verified]
+   - Timeframe: Determine the release date of Kendrick Lamar's most recent studio album. [Verified]
+   - Wording/Quote: Confirm the exact title of the album released on that date. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Kendrick Lamar released his most recent studio album, ""GNX,"" on November 22, 2024.
+- Key Facts:
+  - ""GNX"" is Kendrick Lamar's sixth studio album.
+  - The album was released on November 22, 2024.","Kendrick Lamar released his most recent studio album, ""GNX,"" on November 22, 2024.",correct,evaluation: correct
+179,179,TEST,Where were the Summer Olympics held most recently?,2024,08/11/2028,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/Summer_Olympic_Games#:~:text=2024%5B97,Paris","Paris, France",France,,,,,,,,,,"The question contains a valid premise. The most recent Summer Olympics were held in Paris, France, in 2024.","['Paris, France', 'France']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the host city of the most recent Summer Olympics.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from Wikipedia states that the most recent Summer Olympics were held in 2024 in Paris, France.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the host city of the most recent Summer Olympics. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The most recent Summer Olympics were held in 2024 in Paris, France.
+- Key Facts:
+  - The 2024 Summer Olympics took place in Paris, France (source: Wikipedia).","The most recent Summer Olympics were held in 2024 in Paris, France.",correct,evaluation: correct
+180,180,TEST,In which year was the last UEFA European Championship was held?,2024,01/01/2028,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/UEFA_European_Championship#:~:text=24-,17,2024,-Germany",2024,,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The last UEFA European Championship was held in 2024.",['2024'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the year of the most recent UEFA European Championship.
+
+2) Evidence-Based Status:
+   - Verified: The evidence indicates that the most recent UEFA European Championship was held in 2024, with Spain defeating England in the final on July 14, 2024.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the year of the most recent UEFA European Championship. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The last UEFA European Championship was held in 2024.
+- Key Facts:
+  - The UEFA European Championship is held every four years.
+  - The most recent championship took place in 2024, with Spain winning against England in the final.",The last UEFA European Championship was held in 2024.,correct,evaluation: correct
+181,181,TEST,When is the next leap year?,2024,01/01/2028,False,one-hop,slow-changing,https://www.cbsnews.com/news/2024-leap-year-status-meaning/#:~:text=After%20that%2C%20expect%20leap%20years%20in%202028,2028,,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the next leap year will be 2028.",['2028'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Calculate the next leap year after 2025 using the leap year rule.
+
+2) Evidence-Based Status:
+   - Verified. The calculation shows that the next leap year after 2025 is 2028.
+
+3) Updated Fact Ladder:
+   1. Identity: Confirm the current year is 2025. [Verified]
+   2. Definition/Status: Determine the leap year rule (divisible by 4, not divisible by 100 unless also divisible by 400). [Verified]
+   3. Mapping/Other: Calculate the next leap year after 2025 using the leap year rule. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The next leap year after 2025 is 2028.
+- Key Facts:
+  - The current year is 2025. (Verified by Wikipedia)
+  - The leap year rule is that a year is a leap year if it is divisible by 4, but not if it is divisible by 100 unless it is also divisible by 400.",The next leap year after 2025 is 2028.,correct,evaluation: correct
+182,182,TEST,What's the latest major version of the .NET?,2024,11/01/2025,False,one-hop,slow-changing,"https://en.wikipedia.org/wiki/.NET#:~:text=3%20years-,.NET%209,-November%2012%2C%202024",.NET 9,,,,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The latest major version of .NET is .NET 10, released in November 2025.",['.NET 9'],incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Determine the latest major version of .NET as of today.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that the most recent version of .NET is .NET 10, released in November 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the latest major version of .NET as of today. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The latest major version of .NET is .NET 10.
+- Key Facts: 
+  - .NET 10 was released in November 2025 and is a long-term support (LTS) version. (Source: en.wikipedia.org, singhsharp.medium.com, infoq.com)",The latest major version of .NET is .NET 10.,incorrect,evaluation: incorrect
+229,229,TEST,How many public health emergency of international concern declarations have been made by WHO in the last 5 years?,2025,occasionally,False,multi-hop,slow-changing,https://en.wikipedia.org/wiki/Public_health_emergency_of_international_concern#Declarations,2,two,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the World Health Organization (WHO) has declared two public health emergencies of international concern (PHEIC) in the last five years: the COVID-19 pandemic on January 30, 2020, and the mpox outbreak on August 14, 2024.","['2', 'two']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Determine the list of public health emergencies of international concern (PHEIC) declared by WHO.
+
+2) Evidence-Based Status:
+   - Verified. The evidence lists several PHEIC declarations, including COVID-19 (2020–2023), Clade II mpox (2022–2023), and Clade I mpox (2024–present), which fall within the last 5 years.
+
+3) Updated Fact Ladder:
+   1. Identity: Determine the list of public health emergencies of international concern (PHEIC) declared by WHO. [Verified]
+   2. Timeframe: Verify the dates of each PHEIC declaration to ensure they fall within the last 5 years. [Verified]
+   3. Definition / Status: Confirm that each declaration is officially recognized as a PHEIC by WHO. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: WHO has declared three public health emergencies of international concern in the last 5 years.
+- Key Facts:
+  - COVID-",WHO has declared three public health emergencies of international concern in the last 5 years.,incorrect,evaluation: incorrect
+230,230,TEST,In what country was the current World's Strongest Man born?,2025,occasionally,False,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/World%27s_Strongest_Man#2020s:~:text=%2C%20South%20Carolina-,2025,Rayno%20Nel,-Tom%20Stoltman
+https://en.wikipedia.org/wiki/Rayno_Nel#:~:text=Upington%2C-,South%20Africa,-Occupation",South Africa,,,,,,,,,,,"The question contains a valid premise. As of the most recent information, Rayno Nel is the current World's Strongest Man, and he was born in South Africa.",['South Africa'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was verifying the birthplace of the current World's Strongest Man, Rayno Nel.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that Rayno Nel was born in Upington, South Africa.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who currently holds the title of World's Strongest Man. [Verified]
+   - Timeframe: Confirm the date of the most recent World's Strongest Man competition. [Unresolved]
+   - Definition / Status: Verify the birthplace of the current World's Strongest Man. [Verified]
+
+4) Next Step:
+   - Since the identity and birthplace of the current World's Strongest Man have been verified, I can now provide the final answer. The timeframe of the competition is not directly needed to answer the user's question about the birthplace. 
+
+Final Answer:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The current World's Strongest Man, Rayno Nel, was born in South Africa.
+- Key Facts:
+  - Rayno Nel is the 2025 World's Strongest Man. (Source: en.wikipedia.org)
+  - He was born in Upington, South Africa. (Source: en.wikipedia.org)","The current World's Strongest Man, Rayno Nel, was born in South Africa.",correct,evaluation: correct
+231,231,TEST,"How many publicly traded American companies have, at any point, had a market capitalization in excess of $3 trillion?",2025,occasionally,False,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization#:~:text=Nvidia,%5B21%5D",4,four,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most up-to-date and relevant information indicates that three publicly traded American companies have, at some point, had a market capitalization in excess of $3 trillion: Apple, Microsoft, and Alphabet.","['4', 'four']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - I was verifying which American companies have ever had a market capitalization exceeding $3 trillion.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Apple, Microsoft, Alphabet (Google), and Nvidia have all surpassed a market capitalization of $3 trillion at some point.
+
+3) Updated Fact Ladder:
+   - Identity: Identify which American companies have been publicly traded. [Verified]
+   - Definition / Status: Determine which of these companies have ever had a market capitalization exceeding $3 trillion. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Premise: True
+Verdict: Yes
+Direct Answer: Four publicly traded American companies have, at any point, had a market capitalization in excess of $3 trillion.
+Key Facts:
+- Apple, Microsoft, Alphabet (Google), and Nvidia have all surpassed a market capitalization of $3 trillion. (Source: fool.com, companiesmarketcap.com, gov.ca.gov)
+- These companies are among the largest by market capitalization in the United States.","Four publicly traded American companies have, at any point, had a market capitalization in excess of $3 trillion.",correct,evaluation: correct
+232,232,TEST,How many federal crimes has the most recent former president of the United States been convicted of?,2025,01/01/2029,False,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/Joe_Biden#:~:text=Biden%20(disambiguation).-,Joe%20Biden,-Official%20portrait%2C%202021","Joe Biden, the most recent former president of the United States, hasn't been convicted of any federal crimes.",0,zero,none,,,,,,,,"The question contains an invalid premise. The most recent former president of the United States, Donald Trump, has not been convicted of any federal crimes. He was convicted of 34 counts of falsifying business records in New York state court, which are state charges, not federal.","[""Joe Biden, the most recent former president of the United States, hasn't been convicted of any federal crimes."", '0', 'zero', 'none']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Check if this former president has been convicted of any federal crimes.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Joe Biden was convicted of three federal firearms-related felony charges in June 2024 and pleaded guilty to tax charges in September 2024.
+
+3) Updated Fact Ladder:
+   - Identity: Determine who the most recent former president of the United States is as of today. [Verified]
+   - Definition / Status: Check if this former president has been convicted of any federal crimes. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Premise: True
+Verdict: Yes
+Direct Answer: The most recent former president, Joe Biden, has been convicted of federal crimes.
+Key Facts:
+- Joe Biden was convicted of three federal firearms-related felony charges in June 2024.
+- He pleaded guilty to tax charges in September 2024.","The most recent former president, Joe Biden, has been convicted of federal crimes.",incorrect,evaluation: incorrect
+233,233,TEST,Who is the spouse of the President of the United States?,2025,01/01/2029,False,multi-hop,slow-changing,https://en.wikipedia.org/wiki/First_Lady_of_the_United_States#:~:text=Current%0AMelania%20Trump,Melania Trump,Melania Knauss Trump,Melanija Knavs,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the spouse of the President of the United States, Donald J. Trump, is Melania Trump.","['Melania Trump', 'Melania Knauss Trump', 'Melanija Knavs']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Identify the spouse of the current President.
+
+2) Evidence-Based Status:
+   - Verified. The evidence confirms that Melania Trump is the spouse of Donald J. Trump, the current President of the United States as of 2025.
+
+3) Updated Fact Ladder:
+   1. Identity: Determine who currently holds the office of the President of the United States. [Verified]
+   2. Identity: Identify the spouse of the current President. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The spouse of the President of the United States, Donald J. Trump, is Melania Trump.
+- Key Facts:
+  - Donald J. Trump is the current President of the United States as of November 2025. (Source: whitehouse.gov, en.wikipedia.org)
+  - Melania Trump is the spouse of Donald J. Trump and serves as the First Lady. (Source: whitehouse.gov, en.wikipedia.org)","The spouse of the President of the United States, Donald J. Trump, is Melania Trump.",correct,evaluation: correct
+234,234,TEST,Who is the vice-chancellor of the largest university by enrollment in the world?,2024,occasionally,False,multi-hop,slow-changing,"https://en.wikipedia.org/wiki/List_of_largest_universities_and_university_networks_by_enrollment#:~:text=Ref-,1,Indira%20Gandhi%20National%20Open%20University,-New%20Delhi%2C
+https://en.wikipedia.org/wiki/Indira_Gandhi_National_Open_University#:~:text=Government%20of%20India-,Vice%2DChancellor,Uma%20Kanjilal,-Visitor",Uma Kanjilal,Prof. Uma Kanjilal has been appointed as the Acting Vice Chancellor of Indira Gandhi National Open University.,,,,,,,,,,"The question contains a valid premise. The largest university by enrollment in the world is the Indira Gandhi National Open University (IGNOU) in Delhi, India. The vice-chancellor of IGNOU is Harun -or- Rashid.","['Uma Kanjilal', 'Prof. Uma Kanjilal has been appointed as the Acting Vice Chancellor of Indira Gandhi National Open University.']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Identify the current vice-chancellor of the Indira Gandhi National Open University (IGNOU).
+
+2) Evidence-Based Status:
+   - Verified: The evidence confirms that Professor Uma Kanjilal is the current Vice-Chancellor of Indira Gandhi National Open University (IGNOU) as of July 25, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Determine which university currently has the largest enrollment in the world. [Verified]
+   - Identity: Identify the current vice-chancellor of that university. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: The vice-chancellor of the largest university by enrollment in the world, Indira Gandhi National Open University, is Professor Uma Kanjilal.
+- Key Facts:
+  - Indira Gandhi National Open University (IGNOU) is the largest university in the world by enrollment, with over 7 million students. (Source: ceoworld.biz, yocket.com)
+  - Professor Uma Kanjilal was appointed as the Vice-Chancellor","The vice-chancellor of the largest university by enrollment in the world, Indira Gandhi National Open University, is Professor Uma Kanjilal.",correct,evaluation: correct
+373,373,TEST,How old is President Donald Trump?,2025,occasionally,False,one-hop,fast-changing,"https://en.wikipedia.org/wiki/Donald_Trump#:~:text=14%2C%201946%20(-,age%C2%A079,-)",79,79 years old,,,,,,,,,,"As of today, November 15, 2025, President Donald Trump is 79 years old. He was born on June 14, 1946.","['79', '79 years old']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Calculate his age based on the current date and his birthdate.
+
+2) Evidence-Based Status:
+   - Verified. The calculation shows that Donald Trump is 79 years old as of November 20, 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Confirm Donald Trump's birthdate. [Verified]
+   - Timeframe: Calculate his age based on the current date and his birthdate. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will provide the final answer.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Donald Trump is 79 years old as of November 20, 2025.
+- Key Facts:
+  - Donald Trump was born on June 14, 1946. (Source: www.trumplibrary.gov, en.wikipedia.org)
+  - As of November 20, 2025, he is 79 years old.","Donald Trump is 79 years old as of November 20, 2025.",correct,evaluation: correct
+374,374,TEST,Who was the winner of The Voice US this year?,2025,frequently,False,one-hop,fast-changing,"https://en.wikipedia.org/wiki/The_Voice_(American_TV_series)#:~:text=27-,Adam%20David,-Jaelen%20Johnston",Adam David,,,,,,,,,,,"As of today November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. The winner of The Voice US this year, 2025, was Adam David, who won Season 27.",['Adam David'],correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - Verify who won ""The Voice US"" in 2025.
+
+2) Evidence-Based Status:
+   - Verified. The evidence indicates that Adam David was named the winner of ""The Voice US"" in 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Verify who won ""The Voice US"" in 2025. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Adam David was the winner of ""The Voice US"" in 2025.
+- Key Facts: 
+  - Adam David won ""The Voice US"" Season 27 in 2025. (Source: en.wikipedia.org, May 20, 2025)
+  - He was part of Team Michael Bublé. (Source: goodhousekeeping.com, May 21, 2025)","Adam David was the winner of ""The Voice US"" in 2025.",incorrect,evaluation: incorrect
+375,375,TEST,How many countries have recognized same-sex marriage?,2025,frequently,False,one-hop,fast-changing,https://en.wikipedia.org/wiki/Same-sex_marriage#:~:text=As%20of%202025%2C%20marriage%20between%20same%2Dsex%20couples%20is%20legally%20performed%20and%20recognized%20in%2038%20countries,38 countries,38,,,,,,,,,,"The question contains a valid premise. As of today, November 15, 2025, the most up-to-date and relevant information indicates that 38 countries have recognized same-sex marriage.","['38 countries', '38']",correct,evaluation: correct,"1) Prerequisite You Were Checking:
+   - I was verifying the Definition / Status prerequisite: ""Verify that the recognition is at the national level, not just regional or local.""
+
+2) Evidence-Based Status:
+   - Verified. The evidence from the Human Rights Campaign confirms that same-sex marriage is legal in 38 countries, indicating national-level recognition.
+
+3) Updated Fact Ladder:
+   - Identity: Determine the current list of countries that recognize same-sex marriage. [Verified]
+   - Timeframe: Confirm that the information is up-to-date as of November 2025. [Verified]
+   - Definition / Status: Verify that the recognition is at the national level, not just regional or local. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: As of November 2025, 38 countries have recognized same-sex marriage.
+- Key Facts:
+  - Same-sex marriage is legally performed and recognized in 38 countries as of 2025. (Source: Wikipedia, Human Rights Campaign)
+  - The information is up-to-date as of November","As of November 2025, 38 countries have recognized same-sex marriage.",correct,evaluation: correct
+376,376,TEST,How many exoplanets have been discovered?,2025,frequently,False,one-hop,fast-changing,https://en.wikipedia.org/wiki/Lists_of_planets#:~:text=there%20are%206%2C022%20confirmed%20exoplanets,"6,022 confirmed exoplanets","6,022",,,,,,,,,,"As of today, November 15, 2025, the most up-to-date and relevant information regarding this query is as follows. Over 6,000 exoplanets have been confirmed.","['6,022 confirmed exoplanets', '6,022']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Determine the current total number of exoplanets discovered.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from the NASA Exoplanet Archive as of October 30, 2025, states that a total of 6,042 confirmed exoplanets have been discovered.
+
+3) Updated Fact Ladder:
+   - Definition / Status — Determine the current total number of exoplanets discovered. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+Final Answer — Answer Contract:
+
+- Premise: True
+- Verdict: Yes
+- Direct Answer: As of October 30, 2025, a total of 6,042 exoplanets have been discovered.
+- Key Facts:
+  - The NASA Exoplanet Archive lists 6,042 confirmed exoplanets as of October 30, 2025.","As of October 30, 2025, a total of 6,042 exoplanets have been discovered.",incorrect,evaluation: incorrect
+377,377,TEST,How many goals has Erling Haaland scored in the UEFA Champion League?,2025,frequently,False,one-hop,fast-changing,https://www.uefa.com/uefachampionsleague/news/0268-11f9321e7599-fde3dd4a7bd0-1000--erling-haaland-in-the-champions-league-scoring-record-opponents/#:~:text=Erling%20Haaland%20has%20scored%2053%20goals%20in%20just%2051%20UEFA%20Champions%20League%20appearances,53 goals,53,,,,,,,,,,"The question contains a valid premise. As of the latest information available, Erling Haaland has scored 54 goals in the UEFA Champions League.","['53 goals', '53']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Verify the total number of goals Erling Haaland has scored in the UEFA Champions League as of the current date.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from www.uefa.com states that Erling Haaland has scored 54 goals in 52 UEFA Champions League appearances as of November 2025.
+
+3) Updated Fact Ladder:
+   - Identity: Confirm that Erling Haaland is the player in question. [Verified]
+   - Timeframe: Determine the current date to ensure the latest statistics are considered. [Verified]
+   - Definition / Status: Verify the total number of goals Erling Haaland has scored in the UEFA Champions League as of the current date. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Erling Haaland has scored 54 goals in the UEFA Champions League as of November 2025.
+- Key Facts: 
+  - Erling Haaland has scored 54 goals in 52 UEFA Champions League appearances. (Source: www.uefa.com,",Erling Haaland has scored 54 goals in the UEFA Champions League as of November 2025.,incorrect,evaluation: incorrect
+378,378,TEST,What is the latest highest-grossing movie of the week at the Box office?,2025,frequently,False,one-hop,fast-changing,"https://www.boxofficemojo.com/weekly/?ref_=bo_nb_wly_secondarytab#:~:text=64-,Tron%3A%20Ares,-41",Tron: Ares,,,,,,,,,,,"The question contains a valid premise. As of the latest available data, the highest-grossing movie of the week at the box office is ""Predator: Badlands,"" with a gross of $40.0 million.",['Tron: Ares'],incorrect,evaluation: incorrect,"Premise: Uncertain - The specific timeframe for the current box office reporting week ending November 20, 2025, was not confirmed in the evidence.
+
+Verdict: Uncertain
+
+Direct Answer: The highest-grossing movie for the week ending November 18, 2025, is ""Now You See Me: Now You Don't,"" but the exact current reporting week ending date is unclear.
+
+Key Facts:
+- ""Now You See Me: Now You Don't"" was the top movie with a weekend gross of $21 million for the week ending November 18, 2025 (source: www.boxofficemojo.com, Nov 17, 2025).
+- The specific box office reporting week ending around November 20, 2025, was not confirmed in the evidence.
+
+If Needed: Further verification of the exact box office reporting week ending date is required to fully confirm the current highest-grossing movie.","The highest-grossing movie for the week ending November 18, 2025, is ""Now You See Me: Now You Don't,"" but the exact current reporting week ending date is unclear.",incorrect,evaluation: incorrect
+379,379,TEST,How many tornadoes have been confirmed by Enhanced Fujita rating in the United States so far this year?,2025,frequently,False,one-hop,fast-changing,"https://en.wikipedia.org/wiki/Tornadoes_of_2025#:~:text=1-,1%2C292,-Fatal%20United%20States","1,292","There have been 1,292 confirmed tornadoes in the United States.",,,,,,,,,,"The question contains a valid premise. However, the specific number of tornadoes confirmed by Enhanced Fujita rating in the United States for the year 2025 is not provided in the available sources.","['1,292', 'There have been 1,292 confirmed tornadoes in the United States.']",incorrect,evaluation: incorrect,"- Premise: Uncertain. The evidence does not provide a comprehensive breakdown of tornadoes by Enhanced Fujita rating for 2025.
+- Verdict: Uncertain.
+- Direct Answer: The number of tornadoes confirmed by Enhanced Fujita rating in the United States for 2025 is not clearly detailed in the available evidence.
+- Key Facts:
+  - As of October 2025, the confirmed U.S. tornado count for the year is 1,283, but a detailed breakdown by Enhanced Fujita rating is not provided. (source: www.iweathernet.com)
+  - 2025 featured the first EF5 tornado since 2013, and several EF4 tornadoes, but exact numbers for each rating are not specified. (source: en.wikipedia.org)
+- If Needed: Further detailed reports from the Storm Prediction Center or NOAA might provide the specific breakdown needed.",The number of tornadoes confirmed by Enhanced Fujita rating in the United States for 2025 is not clearly detailed in the available evidence.,incorrect,evaluation: incorrect
+380,380,TEST,How many citations does Geoffrey Hinton have according to Google Scholar?,2025,frequently,False,one-hop,fast-changing,"https://scholar.google.com/citations?user=JicYPdAAAAAJ&hl=en#:~:text=Citations-,972453,-597125",972453,972K,,,,,,,,,,"The question contains a valid premise. As of the most recent information available, Geoffrey Hinton has reached one million citations according to Google Scholar.","['972453', '972K']",incorrect,evaluation: incorrect,"1) Prerequisite You Were Checking:
+   - Verify the correct Google Scholar profile for Geoffrey Hinton.
+
+2) Evidence-Based Status:
+   - Verified. The evidence from Google Scholar indicates that Geoffrey Hinton is an Emeritus Professor of Computer Science at the University of Toronto, and his profile lists a citation count of 981,648.
+
+3) Updated Fact Ladder:
+   - Identity: Verify the correct Google Scholar profile for Geoffrey Hinton. [Verified]
+   - Definition / Status: Determine the current number of citations listed on his Google Scholar profile. [Verified]
+
+4) Next Step:
+   - All prerequisites are now verified. I will proceed to provide the Final Answer using the Answer Contract.
+
+Final Answer — Answer Contract:
+- Premise: True
+- Verdict: Yes
+- Direct Answer: Geoffrey Hinton has 981,648 citations according to his Google Scholar profile.
+- Key Facts: 
+  - Geoffrey Hinton is listed as an Emeritus Professor of Computer Science at the University of Toronto on Google Scholar.
+  - His Google Scholar profile shows a citation count of 981,648.","Geoffrey Hinton has 981,648 citations according to his Google Scholar profile.",incorrect,evaluation: incorrect

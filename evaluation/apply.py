@@ -11,7 +11,7 @@ def evaluate_dataframe(
     question_col: str,
     response_col: str,
     correct_col: str,
-    mode: str = "robust",  # "robust" or "relaxed-llm"
+    mode: str,  # should be "robust" or "relaxed-llm"
     model: str = "gpt-4o",
 ) -> pd.DataFrame:
     """
@@ -30,10 +30,12 @@ def evaluate_dataframe(
             r = eval_relaxed_llm(correct_answers, response, model=model)
             labels.append(r["label"])
             reasons.append(r["raw"])
-        else:
+        elif mode == "robust":
             r = eval_robust(question, response, correct_answers)
             labels.append(r["label"])
             reasons.append(r["reason"])
+        else:
+            raise ValueError(f"Unknown evaluation mode: {mode}")
     out[f"eval_label_{mode}"] = labels
     out[f"eval_reason_{mode}"] = reasons
     return out

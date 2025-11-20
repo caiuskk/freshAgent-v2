@@ -95,7 +95,7 @@ def extract_direct_answer(final_text: str) -> str:
         if val:
             return val
         # If empty on the same line, try the next non-empty line
-        after = t[m.end():].splitlines()
+        after = t[m.end() :].splitlines()
         for line in after:
             ls = line.strip()
             if ls:
@@ -299,7 +299,7 @@ class Agent:
             if ("Final Answer:" in content) or (
                 "Premise:" in content and "Verdict:" in content
             ):
-                return content
+                return content, extract_direct_answer(content)
 
             # 4) Tool call branch (only if not last step)
             if tool_calls and steps_left > 1:
@@ -352,14 +352,3 @@ class Agent:
         if messages and messages[-1].get("role") == "assistant":
             return messages[-1].get("content", "[Stopped: max steps reached]")
         return "[Stopped: max steps reached]"
-
-    def run_parts(self, query: str, dbg: bool = False) -> Dict[str, str]:
-        """Run the agent and return both full text and extracted direct answer.
-
-        Returns a dict with keys:
-          - 'full': the complete assistant output (Answer Contract or final text)
-          - 'direct': best-effort extracted direct answer string
-        """
-        full = self.run(query, dbg=dbg)
-        direct = extract_direct_answer(full)
-        return {"full": full, "direct": direct}
